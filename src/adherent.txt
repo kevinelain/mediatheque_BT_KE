@@ -1,0 +1,7 @@
+Nom<Delahaye> ; Prenom<Benoit> ; Identifiant<1> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Haddock> ; Prenom<Archibald> ; Identifiant<2> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Tournesol> ; Prenom<Tryphon> ; Identifiant<3> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Bolivar> ; Prenom<Anatole> ; Identifiant<4> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Haddock> ; Prenom<Colin> ; Identifiant<5> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Bocasa> ; Prenom<Tryphon> ; Identifiant<6> ; Adresse<test> ; DateNaissance<1/01/1990>
+Nom<Patacaisse> ; Prenom<Babar> ; Identifiant<7> ; Adresse<test> ; DateNaissance<1/01/1990>
