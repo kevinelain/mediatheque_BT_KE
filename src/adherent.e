@@ -12,10 +12,11 @@ feature {ANY}
 
 feature{ANY}
 	--constructeur de la classe
-	make(new_id: INTEGER, new_nom: STRING, new_prenom: STRING, new_adresse: STRING, new_date_naiss: STRING)is
+	make(new_id: INTEGER; new_nom: STRING; new_prenom: STRING; new_adresse: STRING; new_date_naiss: STRING)is
 		do
 			id:=new_id
 			nom:=new_nom
+			--io.put_string("%N"+nom)
 			prenom:=new_prenom
 			adresse:=new_adresse
 			date_naiss:=new_date_naiss
@@ -46,11 +47,12 @@ feature{ANY}
 			--Fonction d'affichage test
 	affichage_test is
 		do
+			io.put_string("%N")
 			io.put_integer(id)
-			io.put_string("%N<nom>")
-			io.put_string("%N<prenom>")
-			io.put_string("%N<adresse>")
-			io.put_string("%N<date_naiss>")
+			io.put_string("%N"+nom)
+			io.put_string("%N"+prenom)
+			io.put_string("%N"+adresse)
+			io.put_string("%N"+date_naiss)
 		end
 			
 	
