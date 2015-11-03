@@ -2,24 +2,25 @@ class DVD
 	-- représente la classe d'un DVD
 inherit MEDIA
 	rename make as make_media
+	end
 
 creation {ANY}
 	make, set_realisateur, set_acteurs, set_type
 
-feature {}
+feature {ANY}
 	realisateur: STRING
 		-- realisateur du film
-	acteurs: ARRAY[STRING]
+	acteurs: STRING		-- a changer dans le futur en tableau ARRAY[STRING]
 		-- représente un tableau contenant les acteurs principaux
 	type: STRING
 		-- si le DVD est simple, en coffret, double...
 
-feature {}
-	make(new_id: INTEGER, new_titre: STRING, new_genre: STRING, new_nb_exemplaires: STRING, new_date: STRING, new_realisateur: STRING, new_acteurs: ARRAY[STRING], new_type: STRING)is
+feature {ANY}
+	make(new_id: STRING; new_titre: STRING; new_genre: STRING; new_nb_exemplaires: INTEGER; new_date: STRING; new_realisateur: STRING; new_acteurs: STRING; new_type: STRING)is
 		do
 			make_media(new_id, new_titre, new_genre, new_nb_exemplaires, new_date)
 			realisateur := new_realisateur
-			-- acteurs := new_acteurs
+			acteurs := new_acteurs
 			type := new_type			
 		end
 
@@ -32,10 +33,11 @@ feature {}
 			realisateur := new_realisateur
 		end
 
-	set_acteurs is
+	set_acteurs(new_acteurs: STRING) is
 		require
 		local
 		do
+			acteurs := new_acteurs
 		end
 	
 	set_type (new_type: STRING) is
@@ -46,7 +48,20 @@ feature {}
 		do
 			type := new_type
 		end
+	
+	--Fonction d'affichage test
+	affichage_test is
+		do
+			io.put_string("%N"+id)
+			io.put_string("%N"+titre)
+			io.put_string("%N"+genre)
+			io.put_string("%N")
+			io.put_integer(nb_exemplaires)
+			io.put_string("%N"+date)
+			io.put_string("%N"+realisateur)
+			io.put_string("%N"+acteurs)
+			io.put_string("%N"+type)
+		end
 
-feature {MEDIA}
 
 end

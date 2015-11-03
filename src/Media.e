@@ -4,30 +4,30 @@ class MEDIA
 creation {ANY}
 	make, set_id, set_titre, set_genre, set_nb_exemplaires, set_date
 
-feature {}
-	id: INTEGER
+feature {ANY}
+	id: STRING
 		-- id du média
 	titre: STRING
 		-- titre du média
-	genre: INTEGER
+	genre: STRING
 		-- genre du média (thriller, SF...)
 	nb_exemplaires: INTEGER
 		-- nombre d'exemplaires du média
 	date: STRING
 		-- date de sorti du média d'origine
 
-feature {}
+feature {ANY}
 	--constructeur de la classe
-	make(new_id: INTEGER, new_titre: STRING, new_genre: STRING, new_nb_exemplaires: STRING, new_date: STRING)is
+	make(new_id: STRING; new_titre: STRING; new_genre: STRING; new_nb_exemplaires: INTEGER; new_date: STRING)is
 		do
 			id:=new_id
-			titre:=new_nom
+			titre:=new_titre
 			genre:=new_genre
-			nb_exemplaires:=new_exemplaires
+			nb_exemplaires:=new_nb_exemplaires
 			date:=new_date
 		end
 
-	set_id (new_id: INTEGER) is
+	set_id (new_id: STRING) is
 		do
 			id := new_id
 		end
@@ -52,12 +52,12 @@ feature {}
 			date := new_date
 		end
 
-	diminuer_exemplaires() is	-- diminue le nbExemplaire de 1 lors d'un emprunt
+	diminuer_exemplaires is	-- diminue le nbExemplaire de 1 lors d'un emprunt
 		do
 			nb_exemplaires := nb_exemplaires - 1
 		end
 
-	augmenter_exemplaires() is	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
+	augmenter_exemplaires is	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
 		do
 			nb_exemplaires := nb_exemplaires + 1
 		end
