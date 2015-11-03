@@ -4,7 +4,7 @@ creation {ANY}
 	make, set_nom, set_prenom, set_adresse
 
 feature {ANY}
-			id: INTEGER
+			id: STRING
 			nom: STRING
 			prenom: STRING
 			adresse: STRING
@@ -12,11 +12,10 @@ feature {ANY}
 
 feature{ANY}
 	--constructeur de la classe
-	make(new_id: INTEGER; new_nom: STRING; new_prenom: STRING; new_adresse: STRING; new_date_naiss: STRING)is
+	make(new_id: STRING; new_nom: STRING; new_prenom: STRING; new_adresse: STRING; new_date_naiss: STRING)is
 		do
 			id:=new_id
 			nom:=new_nom
-			--io.put_string("%N"+nom)
 			prenom:=new_prenom
 			adresse:=new_adresse
 			date_naiss:=new_date_naiss
