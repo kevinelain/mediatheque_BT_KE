@@ -46,8 +46,7 @@ feature{ANY}
 			--Fonction d'affichage test
 	affichage_test is
 		do
-			io.put_string("%N")
-			io.put_integer(id)
+			io.put_string("%N"+id)
 			io.put_string("%N"+nom)
 			io.put_string("%N"+prenom)
 			io.put_string("%N"+adresse)
