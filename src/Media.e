@@ -2,7 +2,7 @@ class MEDIA
 	-- représente la classe d'un media
 
 creation {ANY}
-	set_id, set_titre, set_genre, set_nb_exemplaires, set_date
+	make, set_id, set_titre, set_genre, set_nb_exemplaires, set_date
 
 feature {}
 	id: INTEGER
@@ -17,6 +17,16 @@ feature {}
 		-- date de sorti du média d'origine
 
 feature {}
+	--constructeur de la classe
+	make(new_id: INTEGER, new_titre: STRING, new_genre: STRING, new_nb_exemplaires: STRING, new_date: STRING)is
+		do
+			id:=new_id
+			titre:=new_nom
+			genre:=new_genre
+			nb_exemplaires:=new_exemplaires
+			date:=new_date
+		end
+
 	set_id (new_id: INTEGER) is
 		do
 			id := new_id
