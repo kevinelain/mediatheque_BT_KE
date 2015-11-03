@@ -23,7 +23,7 @@ feature {}
 			realisateur := new_realisateur
 		end
 
-	set_acteurs is
+	set_acteurs() is
 		require
 		local
 		do

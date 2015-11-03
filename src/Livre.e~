@@ -2,32 +2,32 @@ class LIVRE
 	-- représente la classe d'un livre
 
 creation {ANY}
-	set_auteur, set_nb_pages
+	setAuteur, setNbPages
 
 feature {}
 	auteur: STRING
 		-- auteur du livre
-	nb_pages: INTEGER
+	nbPages: INTEGER
 		-- nombre de pages du livre
 
 feature {}
 
-	set_auteur (new_auteur : STRING) is
+	setAuteur (newAuteur : STRING) is
 		require
 
 		local
 
 		do
-			auteur := new_auteur 
+			auteur := newAuteur 
 		end
 	
-	set_nb_pages (new_nb_pages: STRING) is
+	setNbPages (newNbPages: STRING) is
 		require
 
 		local
 
 		do
-			nb_pages := new_nb_pages
+			nbPages := newNbPages
 		end
 
 feature {MEDIA}

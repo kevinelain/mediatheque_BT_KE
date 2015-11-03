@@ -1,7 +1,7 @@
 class ADHERENT
 
 creation {ANY}
-	make, set_nom, set_prenom, set_adresse
+	make, set_id, set_nom, set_prenom, set_adresse
 
 feature {ANY}
 			id: INTEGER
