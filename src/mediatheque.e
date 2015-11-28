@@ -35,6 +35,7 @@ feature {ANY}
 				io.put_string(adh_db.last_string)
 			        --creation_adh(adh_db.last_string)		
 			end
+			adh_db.disconnect
 			
 		end
                
