@@ -70,7 +70,7 @@ static se_frame_descriptor fd={"augmenter_exemplaire_media"" MEDIATHEQUE",1,4,"%
 se_dump_stack ds;
 ds.fd=&fd;
 ds.current=(void*)&C;
-ds.p=0x0321A906/*l425c3/mediatheque.e*/;
+ds.p=0x0321AD06/*l429c3/mediatheque.e*/;
 ds.caller=caller;
 ds.locals=locals;
 ds.exception_origin=NULL;
@@ -79,141 +79,141 @@ locals[1]=(void**)&R;
 locals[2]=(void**)&_i;
 locals[3]=(void**)&_trouve;
 set_dump_stack_top(&ds);/*link*/
-ds.p=0x0321AD0A/*l429c5/mediatheque.e*/;
+ds.p=0x0321B10A/*l433c5/mediatheque.e*/;
 _trouve=((T6)(0));
-ds.p=0x0321AF0C/*l431c6/mediatheque.e*/;
+ds.p=0x0321B30C/*l435c6/mediatheque.e*/;
 _i=/*IC*/(T2)(INT8_C(1));
 while(1){
-ds.p=0x0321B124/*l433c18/mediatheque.e*/;
+ds.p=0x0321B524/*l437c18/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_dvds/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B12E/*l433c23/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B52E/*l437c23/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_dvds/*i9p*/))->id))!=(INT16_C(173))){
-error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B12E/*l433c23/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B52E/*l437c23/mediatheque.e*/);
 }
-ds.p=0x0321B14C/*l433c38/mediatheque.e*/;
+ds.p=0x0321B54C/*l437c38/mediatheque.e*/;
 if(r6_ix_or(&ds,(T6)((_trouve)==(1)),(T6)((_i)==(r2_ix_43(&ds,r173count(&ds,se_i173(&ds,((T173*)((T173*)((/*RF2*/(C)->_les_dvds/*i9p*/)))))),/*IC*/(T2)(INT8_C(1))))))){
 break;
 }
-ds.p=0x0321B342/*l435c33/mediatheque.e*/;
+ds.p=0x0321B742/*l439c33/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_dvds/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B312/*l435c9/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B712/*l439c9/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_dvds/*i9p*/))->id))!=(INT16_C(173))){
-error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B312/*l435c9/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B712/*l439c9/mediatheque.e*/);
 }
-ds.p=0x0321B32E/*l435c23/mediatheque.e*/;
+ds.p=0x0321B72E/*l439c23/mediatheque.e*/;
 if(((tmp0/*ddt1*/=(r173item(&ds,se_i173(&ds,((T173*)((T173*)((/*RF2*/(C)->_les_dvds/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B324/*l435c18/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B724/*l439c18/mediatheque.e*/);
 }
 if((((tmp0/*ddt1*/)->id))!=(INT8_C(125))){
-error1("Bad target type. The expected type is DVD.",0x0321B324/*l435c18/mediatheque.e*/);
+error1("Bad target type. The expected type is DVD.",0x0321B724/*l439c18/mediatheque.e*/);
 }
 if(((tmp1/*ddt1*/=(r125get_id(&ds,((T125*)tmp0/*ddt1*/)))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B334/*l435c26/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B734/*l439c26/mediatheque.e*/);
 }
 if((((tmp1/*ddt1*/)->id))!=(INT8_C(7))){
-error1("Bad target type. The expected type is STRING.",0x0321B334/*l435c26/mediatheque.e*/);
+error1("Bad target type. The expected type is STRING.",0x0321B734/*l439c26/mediatheque.e*/);
 }
-ds.p=0x0321B354/*l435c42/mediatheque.e*/;
+ds.p=0x0321B754/*l439c42/mediatheque.e*/;
 if(r7is_equal(&ds,((T7*)tmp1/*ddt1*/),a1)){
-ds.p=0x0321B52A/*l437c21/mediatheque.e*/;
+ds.p=0x0321B92A/*l441c21/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_dvds/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B508/*l437c4/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B908/*l441c4/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_dvds/*i9p*/))->id))!=(INT16_C(173))){
-error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B508/*l437c4/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[DVD].",0x0321B908/*l441c4/mediatheque.e*/);
 }
-ds.p=0x0321B524/*l437c18/mediatheque.e*/;
+ds.p=0x0321B924/*l441c18/mediatheque.e*/;
 if(((tmp2/*ddt1*/=(r173item(&ds,se_i173(&ds,((T173*)((T173*)((/*RF2*/(C)->_les_dvds/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321B51A/*l437c13/mediatheque.e*/);
+error1("Call on a Void target.",0x0321B91A/*l441c13/mediatheque.e*/);
 }
 if((((tmp2/*ddt1*/)->id))!=(INT8_C(125))){
-error1("Bad target type. The expected type is DVD.",0x0321B51A/*l437c13/mediatheque.e*/);
+error1("Bad target type. The expected type is DVD.",0x0321B91A/*l441c13/mediatheque.e*/);
 }
 r125augmenter_exemplaires(&ds,((T125*)tmp2/*ddt1*/));
-ds.p=0x0321B608/*l438c4/mediatheque.e*/;
+ds.p=0x0321BA08/*l442c4/mediatheque.e*/;
 _trouve=((T6)(1));
 }
 else{
-ds.p=0x0321B808/*l440c4/mediatheque.e*/;
+ds.p=0x0321BC08/*l444c4/mediatheque.e*/;
 _i=r2_ix_43(&ds,_i,/*IC*/(T2)(INT8_C(1)));
 }
 }
-ds.p=0x0321BB12/*l443c9/mediatheque.e*/;
+ds.p=0x0321BF12/*l447c9/mediatheque.e*/;
 if((_trouve)==(1)){
-ds.p=0x0321BD08/*l445c4/mediatheque.e*/;
+ds.p=0x0321C108/*l449c4/mediatheque.e*/;
 R=((T6)(_trouve));
 }
 else{
-ds.p=0x0321BF08/*l447c4/mediatheque.e*/;
+ds.p=0x0321C308/*l451c4/mediatheque.e*/;
 R=((T6)(_trouve));
-ds.p=0x0321C110/*l449c8/mediatheque.e*/;
+ds.p=0x0321C510/*l453c8/mediatheque.e*/;
 _i=/*IC*/(T2)(INT8_C(1));
 while(1){
-ds.p=0x0321C328/*l451c20/mediatheque.e*/;
+ds.p=0x0321C728/*l455c20/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_dvds/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C332/*l451c25/mediatheque.e*/);
+error1("Call on a Void target.",0x0321C732/*l455c25/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_dvds/*i9p*/))->id))!=(INT16_C(173))){
-error1("Bad target type. The expected type is ARRAY[DVD].",0x0321C332/*l451c25/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[DVD].",0x0321C732/*l455c25/mediatheque.e*/);
 }
-ds.p=0x0321C350/*l451c40/mediatheque.e*/;
+ds.p=0x0321C750/*l455c40/mediatheque.e*/;
 if(r6_ix_or(&ds,(T6)((_trouve)==(1)),(T6)((_i)==(r2_ix_43(&ds,r173count(&ds,se_i173(&ds,((T173*)((T173*)((/*RF2*/(C)->_les_dvds/*i9p*/)))))),/*IC*/(T2)(INT8_C(1))))))){
 break;
 }
-ds.p=0x0321C544/*l453c34/mediatheque.e*/;
+ds.p=0x0321C944/*l457c34/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_livres/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C510/*l453c8/mediatheque.e*/);
+error1("Call on a Void target.",0x0321C910/*l457c8/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_livres/*i9p*/))->id))!=(INT16_C(172))){
-error1("Bad target type. The expected type is ARRAY[LIVRE].",0x0321C510/*l453c8/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[LIVRE].",0x0321C910/*l457c8/mediatheque.e*/);
 }
-ds.p=0x0321C530/*l453c24/mediatheque.e*/;
+ds.p=0x0321C930/*l457c24/mediatheque.e*/;
 if((/*auto-unlock tmp2*/(tmp2/*ddt1*/=(r172item(&ds,se_i172(&ds,((T172*)((T172*)((/*RF2*/(C)->_les_livres/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C526/*l453c19/mediatheque.e*/);
+error1("Call on a Void target.",0x0321C926/*l457c19/mediatheque.e*/);
 }
 if((((tmp2/*ddt1*/)->id))!=(INT8_C(123))){
-error1("Bad target type. The expected type is LIVRE.",0x0321C526/*l453c19/mediatheque.e*/);
+error1("Bad target type. The expected type is LIVRE.",0x0321C926/*l457c19/mediatheque.e*/);
 }
 if(((tmp3/*ddt1*/=(r123get_id(&ds,((T123*)tmp2/*ddt1*/)))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C536/*l453c27/mediatheque.e*/);
+error1("Call on a Void target.",0x0321C936/*l457c27/mediatheque.e*/);
 }
 if((((tmp3/*ddt1*/)->id))!=(INT8_C(7))){
-error1("Bad target type. The expected type is STRING.",0x0321C536/*l453c27/mediatheque.e*/);
+error1("Bad target type. The expected type is STRING.",0x0321C936/*l457c27/mediatheque.e*/);
 }
-ds.p=0x0321C556/*l453c43/mediatheque.e*/;
+ds.p=0x0321C956/*l457c43/mediatheque.e*/;
 if(r7is_equal(&ds,((T7*)tmp3/*ddt1*/),a1)){
-ds.p=0x0321C72E/*l455c23/mediatheque.e*/;
+ds.p=0x0321CB2E/*l459c23/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_dvds/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C70C/*l455c6/mediatheque.e*/);
+error1("Call on a Void target.",0x0321CB0C/*l459c6/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_dvds/*i9p*/))->id))!=(INT16_C(173))){
-error1("Bad target type. The expected type is ARRAY[DVD].",0x0321C70C/*l455c6/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[DVD].",0x0321CB0C/*l459c6/mediatheque.e*/);
 }
-ds.p=0x0321C728/*l455c20/mediatheque.e*/;
+ds.p=0x0321CB28/*l459c20/mediatheque.e*/;
 if(((tmp4/*ddt1*/=(r173item(&ds,se_i173(&ds,((T173*)((T173*)((/*RF2*/(C)->_les_dvds/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321C71E/*l455c15/mediatheque.e*/);
+error1("Call on a Void target.",0x0321CB1E/*l459c15/mediatheque.e*/);
 }
 if((((tmp4/*ddt1*/)->id))!=(INT8_C(125))){
-error1("Bad target type. The expected type is DVD.",0x0321C71E/*l455c15/mediatheque.e*/);
+error1("Bad target type. The expected type is DVD.",0x0321CB1E/*l459c15/mediatheque.e*/);
 }
 r125augmenter_exemplaires(&ds,((T125*)tmp4/*ddt1*/));
-ds.p=0x0321C80C/*l456c6/mediatheque.e*/;
+ds.p=0x0321CC0C/*l460c6/mediatheque.e*/;
 _trouve=((T6)(1));
 }
 else{
-ds.p=0x0321CA0C/*l458c6/mediatheque.e*/;
+ds.p=0x0321CE0C/*l462c6/mediatheque.e*/;
 _i=r2_ix_43(&ds,_i,/*IC*/(T2)(INT8_C(1)));
 }
 }
-ds.p=0x0321CD10/*l461c8/mediatheque.e*/;
+ds.p=0x0321D110/*l465c8/mediatheque.e*/;
 if((_trouve)==(1)){
-ds.p=0x0321CF0A/*l463c5/mediatheque.e*/;
+ds.p=0x0321D30A/*l467c5/mediatheque.e*/;
 R=((T6)(_trouve));
 }
 else{
-ds.p=0x0321D10A/*l465c5/mediatheque.e*/;
+ds.p=0x0321D50A/*l469c5/mediatheque.e*/;
 R=((T6)(_trouve));
 }
 }
@@ -231,10 +231,11 @@ T0* tmp4;
 /*INTERNAL_C_LOCAL list]*/
 T0* _id_adh=(void*)0;
 T0* _id_media_emp=(void*)0;
+T0* _date_retour=(void*)0;
 T6 _reussi=0;
 T2 _i=0;
-void**locals[4];
-static se_frame_descriptor fd={"rendre_emprunt"" MEDIATHEQUE",1,4,"%R25%id_adh%R7%id_media_emp%R7%reussi%E6%i%E2%",1};
+void**locals[5];
+static se_frame_descriptor fd={"rendre_emprunt"" MEDIATHEQUE",1,5,"%R25%id_adh%R7%id_media_emp%R7%date_retour%R7%reussi%E6%i%E2%",1};
 se_dump_stack ds;
 ds.fd=&fd;
 ds.current=(void*)&C;
@@ -244,8 +245,9 @@ ds.locals=locals;
 ds.exception_origin=NULL;
 locals[0]=(void**)&_id_adh;
 locals[1]=(void**)&_id_media_emp;
-locals[2]=(void**)&_reussi;
-locals[3]=(void**)&_i;
+locals[2]=(void**)&_date_retour;
+locals[3]=(void**)&_reussi;
+locals[4]=(void**)&_i;
 set_dump_stack_top(&ds);/*link*/
 ds.p=0x03218B10/*l395c8/mediatheque.e*/;
 if(((tmp0/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
@@ -315,115 +317,156 @@ if((((tmp0/*ddt1*/)->id))!=(INT8_C(40))){
 error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0321924A/*l402c37/mediatheque.e*/);
 }
 r7copy(&ds,se_i7(&ds,((T7*)(((T7*)_id_media_emp)))),r40last_string(&ds,((T40*)tmp0/*ddt1*/)));
-ds.p=0x0321930A/*l403c5/mediatheque.e*/;
+ds.p=0x0321932C/*l403c22/mediatheque.e*/;
+if((/*auto-unlock tmp0*/(tmp0/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
+error1("Call on a Void target.",0x03219326/*l403c19/mediatheque.e*/);
+}
+if((((tmp0/*ddt1*/)->id))!=(INT8_C(40))){
+error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x03219326/*l403c19/mediatheque.e*/);
+}
+ds.p=0x03219342/*l403c33/mediatheque.e*/;
+r40put_string(&ds,((T40*)tmp0/*ddt1*/),se_ms(13,s25_1215456525));
+ds.p=0x0321942C/*l404c22/mediatheque.e*/;
+if((/*auto-unlock tmp0*/(tmp0/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
+error1("Call on a Void target.",0x03219426/*l404c19/mediatheque.e*/);
+}
+if((((tmp0/*ddt1*/)->id))!=(INT8_C(40))){
+error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x03219426/*l404c19/mediatheque.e*/);
+}
+r40read_line(&ds,((T40*)tmp0/*ddt1*/));
+ds.p=0x03219526/*l405c19/mediatheque.e*/;
+_date_retour=se_ms(0,s25_0);
+ds.p=0x0321963E/*l406c31/mediatheque.e*/;
+if((_date_retour)==((void*)((void*)0))){
+error1("Call on a Void target.",0x03219626/*l406c19/mediatheque.e*/);
+}
+if((((_date_retour)->id))!=(INT8_C(7))){
+error1("Bad target type. The expected type is STRING.",0x03219626/*l406c19/mediatheque.e*/);
+}
+ds.p=0x0321964E/*l406c39/mediatheque.e*/;
+if((/*auto-unlock tmp0*/(tmp0/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
+error1("Call on a Void target.",0x03219648/*l406c36/mediatheque.e*/);
+}
+if((((tmp0/*ddt1*/)->id))!=(INT8_C(40))){
+error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x03219648/*l406c36/mediatheque.e*/);
+}
+r7copy(&ds,se_i7(&ds,((T7*)(((T7*)_date_retour)))),r40last_string(&ds,((T40*)tmp0/*ddt1*/)));
+ds.p=0x0321970A/*l407c5/mediatheque.e*/;
 _reussi=((T6)(0));
-ds.p=0x0321950C/*l405c6/mediatheque.e*/;
+ds.p=0x0321990C/*l409c6/mediatheque.e*/;
 _i=/*IC*/(T2)(INT8_C(1));
 while(1){
-ds.p=0x03219724/*l407c18/mediatheque.e*/;
+ds.p=0x03219B24/*l411c18/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_emprunts/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321972E/*l407c23/mediatheque.e*/);
+error1("Call on a Void target.",0x03219B2E/*l411c23/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_emprunts/*i9p*/))->id))!=(INT16_C(177))){
-error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x0321972E/*l407c23/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219B2E/*l411c23/mediatheque.e*/);
 }
-ds.p=0x03219754/*l407c42/mediatheque.e*/;
+ds.p=0x03219B54/*l411c42/mediatheque.e*/;
 if(r6_ix_or(&ds,(T6)((_reussi)==(1)),(T6)((_i)==(r2_ix_43(&ds,r177count(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/)))))),/*IC*/(T2)(INT8_C(1))))))){
 break;
 }
-ds.p=0x03219974/*l409c58/mediatheque.e*/;
+ds.p=0x03219D74/*l413c58/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_emprunts/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x03219912/*l409c9/mediatheque.e*/);
+error1("Call on a Void target.",0x03219D12/*l413c9/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_emprunts/*i9p*/))->id))!=(INT16_C(177))){
-error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219912/*l409c9/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219D12/*l413c9/mediatheque.e*/);
 }
-ds.p=0x03219936/*l409c27/mediatheque.e*/;
+ds.p=0x03219D36/*l413c27/mediatheque.e*/;
 if((/*auto-unlock tmp0*/(tmp0/*ddt1*/=(r177item(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321992C/*l409c22/mediatheque.e*/);
+error1("Call on a Void target.",0x03219D2C/*l413c22/mediatheque.e*/);
 }
 if((((tmp0/*ddt1*/)->id))!=(INT16_C(176))){
-error1("Bad target type. The expected type is EMPRUNT.",0x0321992C/*l409c22/mediatheque.e*/);
+error1("Bad target type. The expected type is EMPRUNT.",0x03219D2C/*l413c22/mediatheque.e*/);
 }
 if(((tmp1/*ddt1*/=(r176get_id_adh(&ds,((T176*)tmp0/*ddt1*/)))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321993C/*l409c30/mediatheque.e*/);
+error1("Call on a Void target.",0x03219D3C/*l413c30/mediatheque.e*/);
 }
 if((((tmp1/*ddt1*/)->id))!=(INT8_C(7))){
-error1("Bad target type. The expected type is STRING.",0x0321993C/*l409c30/mediatheque.e*/);
+error1("Bad target type. The expected type is STRING.",0x03219D3C/*l413c30/mediatheque.e*/);
 }
-ds.p=0x03219964/*l409c50/mediatheque.e*/;
+ds.p=0x03219D64/*l413c50/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_emprunts/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321997C/*l409c62/mediatheque.e*/);
+error1("Call on a Void target.",0x03219D7C/*l413c62/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_emprunts/*i9p*/))->id))!=(INT16_C(177))){
-error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x0321997C/*l409c62/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219D7C/*l413c62/mediatheque.e*/);
 }
-ds.p=0x032199A0/*l409c80/mediatheque.e*/;
+ds.p=0x03219DA0/*l413c80/mediatheque.e*/;
 if(((tmp2/*ddt1*/=(r177item(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x03219996/*l409c75/mediatheque.e*/);
+error1("Call on a Void target.",0x03219D96/*l413c75/mediatheque.e*/);
 }
 if((((tmp2/*ddt1*/)->id))!=(INT16_C(176))){
-error1("Bad target type. The expected type is EMPRUNT.",0x03219996/*l409c75/mediatheque.e*/);
+error1("Bad target type. The expected type is EMPRUNT.",0x03219D96/*l413c75/mediatheque.e*/);
 }
 if(((tmp3/*ddt1*/=(r176get_id_media(&ds,((T176*)tmp2/*ddt1*/)))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x032199A6/*l409c83/mediatheque.e*/);
+error1("Call on a Void target.",0x03219DA6/*l413c83/mediatheque.e*/);
 }
 if((((tmp3/*ddt1*/)->id))!=(INT8_C(7))){
-error1("Bad target type. The expected type is STRING.",0x032199A6/*l409c83/mediatheque.e*/);
+error1("Bad target type. The expected type is STRING.",0x03219DA6/*l413c83/mediatheque.e*/);
 }
-ds.p=0x032199D2/*l409c105/mediatheque.e*/;
+ds.p=0x03219DD2/*l413c105/mediatheque.e*/;
 if(r6_ix_and(&ds,(T6)(r7is_equal(&ds,((T7*)tmp1/*ddt1*/),_id_adh)),(T6)(r7is_equal(&ds,((T7*)tmp3/*ddt1*/),_id_media_emp)))){
-ds.p=0x03219B08/*l411c4/mediatheque.e*/;
+ds.p=0x03219F08/*l415c4/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_emprunts/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x03219B4E/*l411c39/mediatheque.e*/);
+error1("Call on a Void target.",0x03219F4E/*l415c39/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_emprunts/*i9p*/))->id))!=(INT16_C(177))){
-error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219B4E/*l411c39/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219F4E/*l415c39/mediatheque.e*/);
 }
-ds.p=0x03219B72/*l411c57/mediatheque.e*/;
+ds.p=0x03219F72/*l415c57/mediatheque.e*/;
 if(((tmp4/*ddt1*/=(r177item(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/))))),_i))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x03219B68/*l411c52/mediatheque.e*/);
+error1("Call on a Void target.",0x03219F68/*l415c52/mediatheque.e*/);
 }
 if((((tmp4/*ddt1*/)->id))!=(INT16_C(176))){
-error1("Bad target type. The expected type is EMPRUNT.",0x03219B68/*l411c52/mediatheque.e*/);
+error1("Bad target type. The expected type is EMPRUNT.",0x03219F68/*l415c52/mediatheque.e*/);
 }
 _reussi=((T6)(r25augmenter_exemplaire_media(&ds,C,r176get_id_media(&ds,((T176*)tmp4/*ddt1*/)))));
-ds.p=0x03219C22/*l412c17/mediatheque.e*/;
+ds.p=0x0321A032/*l416c25/mediatheque.e*/;
 if(((/*RF2*/(C)->_les_emprunts/*i9p*/))==((void*)((void*)0))){
-error1("Call on a Void target.",0x03219C08/*l412c4/mediatheque.e*/);
+error1("Call on a Void target.",0x0321A008/*l416c4/mediatheque.e*/);
 }
 if(((((/*RF2*/(C)->_les_emprunts/*i9p*/))->id))!=(INT16_C(177))){
-error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x03219C08/*l412c4/mediatheque.e*/);
+error1("Bad target type. The expected type is ARRAY[EMPRUNT].",0x0321A008/*l416c4/mediatheque.e*/);
 }
-ds.p=0x03219C30/*l412c24/mediatheque.e*/;
-r177remove(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/))))),_i);
+ds.p=0x0321A02C/*l416c22/mediatheque.e*/;
+if((/*auto-unlock tmp4*/(tmp4/*ddt1*/=(r177item(&ds,se_i177(&ds,((T177*)((T177*)((/*RF2*/(C)->_les_emprunts/*i9p*/))))),_i))))==((void*)((void*)0))){
+error1("Call on a Void target.",0x0321A022/*l416c17/mediatheque.e*/);
+}
+if((((tmp4/*ddt1*/)->id))!=(INT16_C(176))){
+error1("Bad target type. The expected type is EMPRUNT.",0x0321A022/*l416c17/mediatheque.e*/);
+}
+ds.p=0x0321A056/*l416c43/mediatheque.e*/;
+r176set_date_retour_r(&ds,((T176*)tmp4/*ddt1*/),_date_retour);
 }
 else{
-ds.p=0x03219E08/*l414c4/mediatheque.e*/;
+ds.p=0x0321A208/*l418c4/mediatheque.e*/;
 _i=r2_ix_43(&ds,_i,/*IC*/(T2)(INT8_C(1)));
 }
 }
-ds.p=0x0321A110/*l417c8/mediatheque.e*/;
+ds.p=0x0321A510/*l421c8/mediatheque.e*/;
 if((_reussi)==(1)){
-ds.p=0x0321A30E/*l419c7/mediatheque.e*/;
+ds.p=0x0321A70E/*l423c7/mediatheque.e*/;
 if((/*auto-unlock tmp4*/(tmp4/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321A308/*l419c4/mediatheque.e*/);
+error1("Call on a Void target.",0x0321A708/*l423c4/mediatheque.e*/);
 }
 if((((tmp4/*ddt1*/)->id))!=(INT8_C(40))){
-error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0321A308/*l419c4/mediatheque.e*/);
+error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0321A708/*l423c4/mediatheque.e*/);
 }
-ds.p=0x0321A324/*l419c18/mediatheque.e*/;
+ds.p=0x0321A724/*l423c18/mediatheque.e*/;
 r40put_string(&ds,((T40*)tmp4/*ddt1*/),se_ms(23,s25_1255677259));
 }
 else{
-ds.p=0x0321A510/*l421c8/mediatheque.e*/;
+ds.p=0x0321A910/*l425c8/mediatheque.e*/;
 if((/*auto-unlock tmp4*/(tmp4/*ddt1*/=(r25io(&ds,C))))==((void*)((void*)0))){
-error1("Call on a Void target.",0x0321A50A/*l421c5/mediatheque.e*/);
+error1("Call on a Void target.",0x0321A90A/*l425c5/mediatheque.e*/);
 }
 if((((tmp4/*ddt1*/)->id))!=(INT8_C(40))){
-error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0321A50A/*l421c5/mediatheque.e*/);
+error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0321A90A/*l425c5/mediatheque.e*/);
 }
-ds.p=0x0321A526/*l421c19/mediatheque.e*/;
+ds.p=0x0321A926/*l425c19/mediatheque.e*/;
 r40put_string(&ds,((T40*)tmp4/*ddt1*/),se_ms(56,s25_1805389044));
 }
 set_dump_stack_top(caller);/*unlink*/

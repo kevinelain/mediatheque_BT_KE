@@ -275,50 +275,6 @@ if(se_rci(caller,C))se_i177(&ds,C);
 set_dump_stack_top(caller);/*unlink*/
 }/*--*/
 
-/*ARRAY[EMPRUNT]*/void r177remove(se_dump_stack*caller,T177* C,T2 a1){
-/*[INTERNAL_C_LOCAL list*/
-T2 tmp0;
-T2 tmp1;
-/*INTERNAL_C_LOCAL list]*/
-void**locals[1];
-static se_frame_descriptor fd={"remove"" ARRAY[EMPRUNT]",1,1,"%R177%index%E2%",1};
-se_dump_stack ds;
-ds.fd=&fd;
-ds.current=(void*)&C;
-ds.p=0x0860F104/*l241c2/array.e*/;
-ds.caller=caller;
-ds.locals=locals;
-ds.exception_origin=NULL;
-locals[0]=(void**)&a1;
-set_dump_stack_top(&ds);/*link*/
-ds.p=0x0800F620/*l246c16/collection.e*/;
-tmp0/*old*/=r177count(&ds,C);
-ds.p=0x0800F720/*l247c16/collection.e*/;
-tmp1/*old*/=(/*RF2*/(C)->_upper/*i4p*/);
-if(fd.assertion_flag){
-fd.assertion_flag=0;
-ds.p=0x0800F308/*l243c4/collection.e*/;
-ac_req(r177valid_index(&ds,C,a1),"valid_index(index)");
-ds.p=0x0800F308/*l243c4/collection.e*/;
-ac_req(r177valid_index(&ds,C,a1),"valid_index(index)");
-fd.assertion_flag=1;
-}
-ds.p=0x0860F318/*l243c12/array.e*/;
-r178remove(&ds,(/*RF2*/(C)->_storage/*i4p*/),r2_ix_45(&ds,a1,(/*RF2*/(C)->_lower/*i4p*/)),r2_ix_45(&ds,(/*RF2*/(C)->_upper/*i4p*/),(/*RF2*/(C)->_lower/*i4p*/)));
-ds.p=0x0860F408/*l244c4/array.e*/;
-/*SFN*/(C->_upper/*i4p*/)=r2_ix_45(&ds,(/*RF2*/(C)->_upper/*i4p*/),/*IC*/(T2)(INT8_C(1)));
-if(fd.assertion_flag){
-fd.assertion_flag=0;
-ds.p=0x0800F608/*l246c4/collection.e*/;
-ac_ens((r177count(&ds,C))==(r2_ix_45(&ds,tmp0/*old*/,/*IC*/(T2)(INT8_C(1)))),"count = old count - 1");
-ds.p=0x0800F708/*l247c4/collection.e*/;
-ac_ens(((/*RF2*/(C)->_upper/*i4p*/))==(r2_ix_45(&ds,tmp1/*old*/,/*IC*/(T2)(INT8_C(1)))),"upper = old upper - 1");
-fd.assertion_flag=1;
-}
-if(se_rci(caller,C))se_i177(&ds,C);
-set_dump_stack_top(caller);/*unlink*/
-}/*--*/
-
 /*ARRAY[EMPRUNT]*/void r177ensure_capacity_and_bounds(se_dump_stack*caller,T177* C,T2 a1,T2 a2,T2 a3){
 /*[INTERNAL_C_LOCAL list*/
 T6 tmp0;
@@ -631,6 +587,7 @@ set_dump_stack_top(caller);/*unlink*/
 /*[INTERNAL_C_LOCAL list*/
 T0* tmp0;
 T0* tmp1;
+T0* tmp2;
 /*INTERNAL_C_LOCAL list]*/
 static se_frame_descriptor fd={"affichage_test"" DVD",1,0,"%R125%",1};
 se_dump_stack ds;
@@ -762,7 +719,7 @@ error1("Call on a Void target.",0x0FA03F08/*l63c4/DVD.e*/);
 if((((tmp0/*ddt1*/)->id))!=(INT8_C(40))){
 error1("Bad target type. The expected type is STD_INPUT_OUTPUT.",0x0FA03F08/*l63c4/DVD.e*/);
 }
-ds.p=0x0FA03F2C/*l63c22/DVD.e*/;
+ds.p=0x0FA03F36/*l63c27/DVD.e*/;
 if((/*auto-unlock tmp1*/(tmp1/*ddt1*/=(se_ms(1,s123_10))))==((void*)((void*)0))){
 error1("Call on a Void target.",0x0FA03F24/*l63c18/DVD.e*/);
 }
@@ -770,7 +727,14 @@ if((((tmp1/*ddt1*/)->id))!=(INT8_C(7))){
 error1("Bad target type. The expected type is STRING.",0x0FA03F24/*l63c18/DVD.e*/);
 }
 ds.p=0x0FA03F2E/*l63c23/DVD.e*/;
-r40put_string(&ds,((T40*)tmp0/*ddt1*/),r7_ix_43(&ds,((T7*)tmp1/*ddt1*/),(/*RF2*/(C)->_type/*i8p*/)));
+if(((tmp2/*ddt1*/=(r7_ix_43(&ds,((T7*)tmp1/*ddt1*/),(/*RF2*/(C)->_type/*i8p*/)))))==((void*)((void*)0))){
+error1("Call on a Void target.",0x0FA03F2C/*l63c22/DVD.e*/);
+}
+if((((tmp2/*ddt1*/)->id))!=(INT8_C(7))){
+error1("Bad target type. The expected type is STRING.",0x0FA03F2C/*l63c22/DVD.e*/);
+}
+ds.p=0x0FA03F38/*l63c28/DVD.e*/;
+r40put_string(&ds,((T40*)tmp0/*ddt1*/),r7_ix_43(&ds,((T7*)tmp2/*ddt1*/),se_ms(1,s123_10)));
 set_dump_stack_top(caller);/*unlink*/
 }/*--*/
 

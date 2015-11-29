@@ -665,6 +665,7 @@ char*s25_80026="dvd-3";
 char*s25_828004632="Leonardo DiCaprio";
 char*s25_1671411445="adherent.txt";
 char*s25_12655="John";
+char*s25_1215456525="Date du jour\n";
 char*s25_686439774="Shutter Island";
 char*s25_1535880631="On a pas cet ouvrage dans notre m\303""\251""diath\303""\250""que\n";
 char*s25_1642274547="Etes-vous un adh\303""\251""rent(taper 1) ou un membre du personnel (taper 2)\?\n";
@@ -2857,44 +2858,6 @@ ds.p=0x0661F30A/*l499c5/native_array.e*/;
 r178put(&ds,C,a1,_i);
 ds.p=0x0661F40A/*l500c5/native_array.e*/;
 _i=r2_ix_45(&ds,_i,/*IC*/(T2)(INT8_C(1)));
-}
-set_dump_stack_top(caller);/*unlink*/
-}/*--*/
-
-/*NATIVE_ARRAY[EMPRUNT]*/void r178remove(se_dump_stack*caller,T178 C,T2 a1,T2 a2){
-T2 _i=0;
-void**locals[3];
-static se_frame_descriptor fd={"remove"" NATIVE_ARRAY[EMPRUNT]",1,3,"%E178%index%E2%upper%E2%i%E2%",1};
-se_dump_stack ds;
-ds.fd=&fd;
-ds.current=(void*)&C;
-ds.p=0x06618804/*l392c2/native_array.e*/;
-ds.caller=caller;
-ds.locals=locals;
-ds.exception_origin=NULL;
-locals[0]=(void**)&a1;
-locals[1]=(void**)&a2;
-locals[2]=(void**)&_i;
-set_dump_stack_top(&ds);/*link*/
-if(fd.assertion_flag){
-fd.assertion_flag=0;
-ds.p=0x06618C14/*l396c10/native_array.e*/;
-ac_req(r2_ix_6261(&ds,a1,/*IC*/(T2)(INT8_C(0))),"index >= 0");
-ds.p=0x06618D14/*l397c10/native_array.e*/;
-ac_req(r2_ix_6061(&ds,a1,a2),"index <= upper");
-fd.assertion_flag=1;
-}
-ds.p=0x0661920A/*l402c5/native_array.e*/;
-_i=a1;
-while(1){
-ds.p=0x0661940A/*l404c5/native_array.e*/;
-if((_i)==(a2)){
-break;
-}
-ds.p=0x0661960A/*l406c5/native_array.e*/;
-r178put(&ds,C,r178item(&ds,C,r2_ix_43(&ds,_i,/*IC*/(T2)(INT8_C(1)))),_i);
-ds.p=0x0661970A/*l407c5/native_array.e*/;
-_i=r2_ix_43(&ds,_i,/*IC*/(T2)(INT8_C(1)));
 }
 set_dump_stack_top(caller);/*unlink*/
 }/*--*/
@@ -5313,6 +5276,23 @@ ds.p=0x16002034/*l32c26/emprunt.e*/;
 R=(/*RF2*/(C)->_id_adh/*i5p*/);
 set_dump_stack_top(caller);/*unlink*/
 return R;
+}/*--*/
+
+/*EMPRUNT*/void r176set_date_retour_r(se_dump_stack*caller,T176* C,T0* a1){
+void**locals[1];
+static se_frame_descriptor fd={"set_date_retour_r"" EMPRUNT",1,1,"%R176%new_date_retour_r%R7%",1};
+se_dump_stack ds;
+ds.fd=&fd;
+ds.current=(void*)&C;
+ds.p=0x16002804/*l40c2/emprunt.e*/;
+ds.caller=caller;
+ds.locals=locals;
+ds.exception_origin=NULL;
+locals[0]=(void**)&a1;
+set_dump_stack_top(&ds);/*link*/
+ds.p=0x16002A08/*l42c4/emprunt.e*/;
+/*SFN*/(C->_date_retour_r/*i5p*/)=a1;
+set_dump_stack_top(caller);/*unlink*/
 }/*--*/
 
 /*EMPRUNT*/T0* r176get_id_media(se_dump_stack*caller,T176* C){

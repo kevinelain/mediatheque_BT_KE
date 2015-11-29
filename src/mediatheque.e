@@ -390,7 +390,7 @@ feature {ANY}
 
 		rendre_emprunt is
 		 local
-		  id_adh: STRING; id_media_emp: STRING; reussi: BOOLEAN; i: INTEGER
+		  id_adh: STRING; id_media_emp: STRING; date_retour: STRING; reussi: BOOLEAN; i: INTEGER
 		 do
 		  io.put_string("L'id de l'adherent%N")
                   io.read_line
@@ -400,6 +400,10 @@ feature {ANY}
                   io.read_line
                   id_media_emp:=""
                   id_media_emp.copy(io.last_string)
+                  io.put_string("Date du jour%N")
+                  io.read_line
+                  date_retour:=""
+                  date_retour.copy(io.last_string)
 		  reussi:=False
 		  from
 		   i:=1
@@ -409,7 +413,7 @@ feature {ANY}
 		   if les_emprunts.item(i).get_id_adh.is_equal(id_adh) and les_emprunts.item(i).get_id_media.is_equal(id_media_emp)
 		   then
 			reussi:=augmenter_exemplaire_media(les_emprunts.item(i).get_id_media)
-			les_emprunts.remove(i)
+			les_emprunts.item(i).set_date_retour_r(date_retour);
 		   else
 			i:=i+1
 		   end

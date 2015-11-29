@@ -1,0 +1,4 @@
+Fonction qui marche: rechercher un media (livre et dvd), consulter les emprunts d'un adhérent, enregistrer et rendre un emprunt
+Fonction sera ajouté plus tards: ajouter un media (livre et dvd)(via fichier ou manuellement), authentifaication pour utiliser le logiciel, ajout d'un adherent ou d'un membre du personnel (via fichier ou manuellement), ecriture dans une base de donnée texte (en plusieurs fichier) afin de garder une continuité dans l'utilisation du logiciel
+Le côté esthétique sera améliorer plus tards
+On a pas pu finir l'ajout manuelle ou via un fichier txt car on a eu des problèmes avec les tableaux dynamique. C'est aussi la raison pour laquel on ne peut faire qu'un emprunt en tout (chaque ajout écrase le précédent) 
