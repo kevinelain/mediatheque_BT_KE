@@ -60,7 +60,7 @@ feature {ANY}
 			io.put_string("%N"+date)
 			io.put_string("%N"+realisateur)
 			io.put_string("%N"+acteurs)
-			io.put_string("%N"+type)
+			io.put_string("%N"+type+"%N"
 		end
 
 

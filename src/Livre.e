@@ -52,6 +52,7 @@ feature {ANY}
 			io.put_string("%N"+auteur)
 			io.put_string("%N")
 			io.put_integer(nb_pages)
+			io.put_string("%N")
 		end
 
 end

@@ -61,8 +61,14 @@ feature {ANY}
 		do
 			nb_exemplaires := nb_exemplaires + 1
 		end
-
-feature {}
-	
+		
+        get_titre: STRING is
+                do
+                         Result:=titre
+                end
+	get_id : STRING is
+		do
+			Result:=id
+		end
 end
 	
