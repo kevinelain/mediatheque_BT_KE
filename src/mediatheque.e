@@ -5,16 +5,31 @@ creation {ANY}
 	main
 
 feature {}
-	adherent1: ADHERENT; dvd1: DVD; livre1: LIVRE; personnel1: PERSONNEL
+	adherent1: ADHERENT; dvd1: DVD; livre1: LIVRE; personnel1: PERSONNEL; final_test:BOOLEAN
 	x: INTEGER; choix_menu: INTEGER; test:STRING; adh_db: TEXT_FILE_READ
-        les_dvds: ARRAY[DVD]; les_livres: ARRAY[LIVRE]; les_emprunts: ARRAY[EMPRUNT]; les_adherents: ARRAY[ADHERENT]
+       les_dvds: ARRAY[DVD]; les_livres: ARRAY[LIVRE]; les_emprunts: ARRAY[EMPRUNT]; les_adherents: ARRAY[ADHERENT]; les_personnels: ARRAY[PERSONNEL]
         
 feature {ANY}
 	main is
 	
 		do
 			instance_test
-						
+					
+
+                     from
+				x:=0
+			until
+				final_test
+			loop
+				adh_db.read_line
+                            if not(adh_db.end_of_input)
+                            then
+			              creation_adh_with_file(adh_db.last_string)
+                            end
+                            final_test:=adh_db.end_of_input		
+			end
+			adh_db.disconnect
+
 			io.put_string("Bienvenue dans le programme MEDIATHEQUE BTKE%N")
 			io.put_string("Etes-vous un adhérent(taper 1) ou un membre du personnel (taper 2)?%N")
 			io.put_string("Sinon taper 99 pour quitter%N")
@@ -51,15 +66,6 @@ feature {ANY}
 			then
 			        io.put_string("Bonne journée%N")
 			end
-			from
-				x:=0
-			until
-				adh_db.end_of_input
-			loop
-				adh_db.read_line
-			        creation_adh(adh_db.last_string)		
-			end
-			adh_db.disconnect
 			
 		end
 		
@@ -113,16 +119,18 @@ feature {ANY}
 			
 			from 
 			until
-			        choix_menu_per=6
+			        choix_menu_per=8
 			loop
-				io.put_string("-----------------------------------------%N")
-			        io.put_string("|  taper 1 pour rechercher un DVD	|%N")
-		                io.put_string("|  taper 2 pour rechercher un Livre	|%N")
-		                io.put_string("|  taper 3 pour enregistrer un emprunt	|%N")
-				io.put_string("|  taper 4 pour rendre emprunt		|%N")
-				io.put_string("|  taper 5 pour consulter les emprunt 	|%N")
-				io.put_string("|  taper 6 revenir au menu précédent 	|%N")
-				io.put_string("------------------------------------------%N")
+				io.put_string("--------------------------------------------------------%N")
+			       io.put_string("|  taper 1 pour rechercher un DVD	                    |%N")
+		              io.put_string("|  taper 2 pour rechercher un Livre	              |%N")
+		              io.put_string("|  taper 3 pour enregistrer un emprunt	              |%N")
+				io.put_string("|  taper 4 pour rendre emprunt		              |%N")
+				io.put_string("|  taper 5 pour consulter les emprunt 	              |%N")
+				io.put_string("|  taper 6 pour ajouter un nouvel adhérent	       |%N")
+				io.put_string("|  taper 7 pour ajouter un nouveau membre du personnel	|%N")
+				io.put_string("|  taper 8 revenir au menu précédent 	              |%N")
+				io.put_string("--------------------------------------------------------%N")
 		                io.flush
 			        io.read_integer
 			        choix_menu_per:=io.last_integer
@@ -146,7 +154,7 @@ feature {ANY}
 			        then
 					io.read_line
                                 	consulte_emprunt
-			        elseif (choix_menu_per=6)
+			        elseif (choix_menu_per=8)
 			        then
                                 	choix_menu:=98
 			        end
@@ -157,29 +165,28 @@ feature {ANY}
 
 		instance_test is
 		 do
-		        create adh_db.make
+		       create adh_db.make
 			adh_db.connect_to("adherent.txt")
 			
-			create les_dvds.make(1,3)
-			create les_livres.make(1,1)
-			create les_emprunts.make(1,1)
-			
-			create adherent1.make("1", "Smith", "John", "789 rue Paul Menard 56000 Vannes", "26/01/1989")
-			--adherent1.affichage_test
+			create les_dvds.with_capacity(0,1)
+			create les_livres.with_capacity(0,1)
+			create les_emprunts.with_capacity(0,1)     
+                     create les_adherents.with_capacity(0,1)
+                     create les_personnels.with_capacity(0,1)
 			
 			create personnel1.make("1", "Smith", "John", "789 rue Paul Menard 56000 Vannes", "26/01/1989", "test")
 			--personnel1.affichage_test
 
 			create dvd1.make("dvd-1", "Inception", "Thriller", 4, "2010", "Christopher Nolan", "Leonardo DiCaprio", "Simple")
-			les_dvds.put(dvd1,1)
+			les_dvds.add_first(dvd1)
 			create dvd1.make("dvd-2", "Shutter Island", "Thriller", 4, "2010", "Martin Scorsese", "Leonardo DiCaprio", "Simple")
-			les_dvds.put(dvd1,2)
+			les_dvds.add_first(dvd1)
 			create dvd1.make("dvd-3", "OSS 117, Le Caire nid d'espions", "Thriller/Comédie", 4, "2006", "Michel Hazanavicius", "Jean Dujardin", "Simple")
-			les_dvds.put(dvd1,3)
+			les_dvds.add_last(dvd1)
 
 
 			create livre1.make("livre-1", "Les Nymphéas Noirs", "Thriller/policier", 4, "2012", "Michel Bussi", 320)
-			les_livres.put(livre1,1)
+			les_livres.add_last(livre1)
 		end   
 		
 		
@@ -255,48 +262,72 @@ feature {ANY}
 		end
 		
 		
-		creation_adh(phrase: STRING)is
+		creation_adh_with_file(phrase: STRING)is
 		 local
-			tab:ARRAY[STRING]
-			i:INTEGER; j:INTEGER ;itab:INTEGER
+			tab:ARRAY[STRING]; adh:ADHERENT; pers:PERSONNEL
+                     itab:INTEGER
+                     bool_naiss:BOOLEAN; bool_admin:BOOLEAN
 			attribut: STRING
-			bool:BOOLEAN
 		do
-			create tab.make(1,1)
-			--io.put_string(phrase)
+			create tab.with_capacity(0,1)
+                     create adh.make ("","","","","")
+                     create pers.make ("","","","","","")
 			attribut:=""
-			 from
-				i:=1
-				j:=1
-			until
-				i = phrase.count+1
-			loop
-			        if phrase.item(i)='<'
-				 then
-					bool:=True
-					i:=i+1
-				elseif phrase.item(i) = '>'
-				 then
-					bool:=False
-					tab.put(attribut,j)
-					j:=j+1
-					attribut:=""
-				end
-				if bool = True
-				 then
-					attribut:=attribut+phrase.item(i).to_string
-				end
-				i:=i+1
-			end
+                     bool_naiss:=False
+                     bool_admin:=False
+                     phrase.replace_all('<',' ')
+                     phrase.replace_all('>',' ')
+                     phrase.replace_all(';',' ')
+                     tab:=phrase.split
 			     from
 				itab:=1
 			     until
 				itab = tab.count+1
 			     loop
-				io.put_string(tab.item(itab))
-				io.put_string("%N")
-				itab:=itab+1
-		        end   
+				if (tab.item(itab).is_equal("Nom"))
+                            then
+                                itab:=itab+1
+                                adh.set_nom(tab.item(itab))
+                                pers.set_nom(tab.item(itab))
+                            elseif (tab.item(itab).is_equal("Prenom"))
+                            then
+                                itab:=itab+1
+                               adh.set_prenom(tab.item(itab))
+                               pers.set_prenom(tab.item(itab))
+                          elseif (tab.item(itab).is_equal("Identifiant"))
+                            then
+                                itab:=itab+1
+                                adh.set_id(tab.item(itab))
+                                pers.set_id(tab.item(itab))
+                            elseif (tab.item(itab).is_equal("Adresse"))
+                            then
+                                itab:=itab+1
+                                adh.set_adresse(tab.item(itab))
+                                pers.set_adresse(tab.item(itab))
+                            elseif (tab.item(itab).is_equal("DateNaissance"))
+                            then
+                                itab:=itab+1
+                                adh.set_date_naiss(tab.item(itab))
+                                pers.set_date_naiss(tab.item(itab))
+                                bool_naiss:=True
+                            elseif (tab.item(itab).is_equal("Admin"))
+                            then
+                                   bool_admin:=True
+                            end
+                            itab:=itab+1
+		        end
+                     if (bool_naiss=False)
+                     then
+                        adh.set_date_naiss("00/00/0000")
+                        pers.set_date_naiss("00/00/0000")    
+                     end
+                     if (bool_admin=True)
+                     then
+                        pers.set_matricule(pers.get_nom+pers.get_id)
+                        les_personnels.add_last(pers)                         
+                     else
+                        les_adherents.add_last(adh)
+                     end  
 		end		
         
         

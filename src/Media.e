@@ -66,7 +66,7 @@ feature {ANY}
                 do
                          Result:=titre
                 end
-	get_id : STRING is
+        get_id : STRING is
 		do
 			Result:=id
 		end

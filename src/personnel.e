@@ -2,7 +2,7 @@ class PERSONNEL inherit ADHERENT
  rename make as make_adherent, affichage_test as affichage_test_adh end
  
 creation {ANY}
-	make
+	make, set_matricule
 	
 feature {ANY}
         matricule: STRING
@@ -21,4 +21,14 @@ feature {ANY}
 			affichage_test_adh
 			io.put_string("%N"+matricule+"%N")
 		end
+
+	set_matricule(new_matricule: STRING)is
+		do
+                     matricule:=new_matricule
+		end  
+
+	get_matricule : STRING is
+              do
+                     Result:=matricule
+              end
 end

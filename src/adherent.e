@@ -23,6 +23,11 @@ feature{ANY}
 	
 --Les setteurs de la classe
 
+	set_id(new_id: STRING)is
+		do
+                     id:=new_id
+		end  
+
 	set_nom(new_nom: STRING)is
 		do
 			nom:=new_nom
@@ -53,6 +58,24 @@ feature{ANY}
 			io.put_string("%N"+date_naiss)
 		end
 			
-	
+	get_nom : STRING is
+              do
+                     Result:=nom
+              end
+
+	get_id : STRING is
+              do
+                     Result:=id
+              end
+
+	get_adresse : STRING is
+              do
+                     Result:=adresse
+              end
+
+	get_date_naiss : STRING is
+              do
+                     Result:=date_naiss
+              end
 			
 end
