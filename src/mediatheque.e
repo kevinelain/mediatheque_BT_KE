@@ -18,6 +18,7 @@ feature {ANY}
 			io.put_string("Bienvenue dans le programme MEDIATHEQUE BTKE%N")
 			io.put_string("Etes-vous un adhérent(taper 1) ou un membre du personnel (taper 2)?%N")
 			io.put_string("Sinon taper 99 pour quitter%N")
+			io.put_string("----------------------------------------------------------------------%N")
 			io.flush
 			io.read_integer
 			choix_menu:=io.last_integer
@@ -33,6 +34,7 @@ feature {ANY}
 				 loop
 			          io.put_string("taper 1 si vous êtes adhérent ou 2 si vous êtes un membre du personnel%N")
 				  io.put_string("Sinon taper 99 pour quitter%N")
+				  io.put_string("----------------------------------------------------------------------%N")
 			          io.read_integer
 				  choix_menu:=io.last_integer
 			         end
@@ -49,14 +51,14 @@ feature {ANY}
 			then
 			        io.put_string("Bonne journée%N")
 			end
---			from
---				x:=0
---			until
---				adh_db.end_of_input
---			loop
---				adh_db.read_line
-			       -- creation_adh(adh_db.last_string)		
---			end
+			from
+				x:=0
+			until
+				adh_db.end_of_input
+			loop
+				adh_db.read_line
+			        creation_adh(adh_db.last_string)		
+			end
 			adh_db.disconnect
 			
 		end
@@ -72,10 +74,12 @@ feature {ANY}
 			        
 			        choix_menu_adh=4
 			loop
-			        io.put_string("taper 1 pour rechercher un DVD%N")
-		                io.put_string("taper 2 pour rechercher un Livre%N")
-		                io.put_string("taper 3 pour consulter vos emprunts%N")
-		                io.put_string("taper 4 revenir au menu précédent%N")
+				io.put_string("-----------------------------------------%N")
+			        io.put_string("|  taper 1 pour rechercher un DVD	|%N")
+		                io.put_string("|  taper 2 pour rechercher un Livre	|%N")
+		                io.put_string("|  taper 3 pour consulter vos emprunts   |%N")
+		                io.put_string("|  taper 4 revenir au menu précédent	|%N")
+				io.put_string("-----------------------------------------%N")
 		                io.flush
 			        io.read_integer
 				choix_menu_adh:=io.last_integer
@@ -111,12 +115,14 @@ feature {ANY}
 			until
 			        choix_menu_per=6
 			loop
-			        io.put_string("taper 1 pour rechercher un DVD%N")
-		                io.put_string("taper 2 pour rechercher un Livre%N")
-		                io.put_string("taper 3 pour enregistrer un emprunt%N")
-				io.put_string("taper 4 pour rendre emprunt%N")
-				io.put_string("taper 5 pour consulter les emprunt%N")
-				io.put_string("taper 6 revenir au menu précédent%N")
+				io.put_string("-----------------------------------------%N")
+			        io.put_string("|  taper 1 pour rechercher un DVD	|%N")
+		                io.put_string("|  taper 2 pour rechercher un Livre	|%N")
+		                io.put_string("|  taper 3 pour enregistrer un emprunt	|%N")
+				io.put_string("|  taper 4 pour rendre emprunt		|%N")
+				io.put_string("|  taper 5 pour consulter les emprunt 	|%N")
+				io.put_string("|  taper 6 revenir au menu précédent 	|%N")
+				io.put_string("------------------------------------------%N")
 		                io.flush
 			        io.read_integer
 			        choix_menu_per:=io.last_integer
@@ -185,7 +191,9 @@ feature {ANY}
                   titre:STRING
                   i:INTEGER
                  do
+			io.put_string("--------------------------------------%N")
                         io.put_string("Le titre du DVD que vous cherchez?%N")
+			io.put_string("--------------------------------------%N")
                 	io.read_line
                 	titre:=io.last_string
                 	bool:=False
@@ -205,7 +213,9 @@ feature {ANY}
 			  then
 			   les_dvds.item(i).affichage_test
 			 else
-			   io.put_string("On a pas cet ouvrage dans notre médiathèque%N")
+			   io.put_string("---------------------------------------------------%N")
+			   io.put_string("Nous n avons pas cet ouvrage dans notre médiathèque%N")
+			   io.put_string("---------------------------------------------------%N")
 			 end
 		end
 		
@@ -216,7 +226,9 @@ feature {ANY}
                   titre:STRING
                   i:INTEGER
                  do
+			io.put_string("------------------------------------%N")
                         io.put_string("Le titre du Livre que vous cherchez?%N")
+			io.put_string("------------------------------------%N")
                 	io.read_line
                 	titre:=io.last_string
                 	bool:=False
@@ -236,7 +248,9 @@ feature {ANY}
 			  then
 			   les_livres.item(i).affichage_test
 			 else
-			   io.put_string("On a pas cet ouvrage dans notre médiathèque%N")
+			   io.put_string("---------------------------------------------------%N")
+			   io.put_string("Nous n avons pas cet ouvrage dans notre médiathèque%N")
+			   io.put_string("---------------------------------------------------%N")
 			 end
 		end
 		
@@ -244,15 +258,16 @@ feature {ANY}
 		creation_adh(phrase: STRING)is
 		 local
 			tab:ARRAY[STRING]
-			i:INTEGER;itab:INTEGER
+			i:INTEGER; j:INTEGER ;itab:INTEGER
 			attribut: STRING
 			bool:BOOLEAN
 		do
-			create tab.make(1,6)
+			create tab.make(1,1)
 			--io.put_string(phrase)
 			attribut:=""
 			 from
 				i:=1
+				j:=1
 			until
 				i = phrase.count+1
 			loop
@@ -263,7 +278,8 @@ feature {ANY}
 				elseif phrase.item(i) = '>'
 				 then
 					bool:=False
-					tab.put(attribut,i)
+					tab.put(attribut,j)
+					j:=j+1
 					attribut:=""
 				end
 				if bool = True
@@ -277,8 +293,8 @@ feature {ANY}
 			     until
 				itab = tab.count+1
 			     loop
-				--io.put_string(tab.item(i))
-				--io.put_string("%N")
+				io.put_string(tab.item(itab))
+				io.put_string("%N")
 				itab:=itab+1
 		        end   
 		end		
@@ -290,6 +306,7 @@ feature {ANY}
 		  un_emprunt:EMPRUNT; reussi:BOOLEAN
 		  id_media: STRING; id_adh: STRING; date_auj: STRING; date_ret: STRING
 		 do
+			io.put_string("---------------------------------------------------%N")
 			io.put_string("L'id de l'adherent%N")
                 	io.read_line
 			id_adh:=""
@@ -312,8 +329,10 @@ feature {ANY}
 			if reussi=True
 			then
 			 io.put_string("Enregistrement emprunt réussi%N")
+			 io.put_string("-----------------------------------%N")
 			else
 			 io.put_string("Media introuvable, veuillez recommencer la manipulation%N")
+			 io.put_string("----------------------------------------------------------%N")
 			end
         	 end
                
@@ -321,6 +340,7 @@ feature {ANY}
 		 local
 		  id_adh: STRING; i:INTEGER
 		 do
+		  io.put_string("---------------------%N")
 		  io.put_string("L'id de l'adherent%N")
                   io.read_line
 		  id_adh:=io.last_string
@@ -333,6 +353,7 @@ feature {ANY}
 			 then
 				les_emprunts.item(i).affichage_test
 				io.put_integer(i)
+				io.put_string("---------------------%N")
 				i:=i+1
 			else
 				i:=i+1
@@ -392,6 +413,7 @@ feature {ANY}
 		 local
 		  id_adh: STRING; id_media_emp: STRING; date_retour: STRING; reussi: BOOLEAN; i: INTEGER
 		 do
+		  io.put_string("-----------------------------%N")
 		  io.put_string("L'id de l'adherent%N")
                   io.read_line
                   id_adh:=""
@@ -421,8 +443,10 @@ feature {ANY}
 		  if reussi=True
 		  then
 			io.put_string("Retour emprunt réussi%N")
+			io.put_string("-------------------------%N")
 		  else
 			 io.put_string("Retour impossible, veuillez recommencer la manipulation%N")
+			 io.put_string("-----------------------------------------------------------%N")
 		  end
 		 end
 

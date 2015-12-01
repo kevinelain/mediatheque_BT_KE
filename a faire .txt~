@@ -1,0 +1,7 @@
+Connection: adh-> Non+Prénom
+	    personnel ->matricule
+Fonction vérif adh: vérif qui renvoie booléan (+modif emprunt et retour et consulter)
+Lire fichier : -> résolution Bug (tableau dynamique)
+Ecriture (bdd en txt) : -> A faire
+Interface : -> rendre plus esthétique (pipe et tiret et saut de ligne)
+Affichage objet: renommer et rendre plus esthétique
