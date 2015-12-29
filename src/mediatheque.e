@@ -166,7 +166,7 @@ feature {ANY}
 		instance_test is
 		 do
 		       create adh_db.make
-			adh_db.connect_to("adherent.txt")
+			adh_db.connect_to("inscrit.txt")
 			
 			create les_dvds.with_capacity(0,1)
 			create les_livres.with_capacity(0,1)
