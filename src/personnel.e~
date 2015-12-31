@@ -19,7 +19,7 @@ feature {ANY}
 	affichage_test is
 		do
 			affichage_test_adh
-			io.put_string(matricule+"%N")
+			io.put_string("%N"+matricule+"%N")
 		end
 
 	set_matricule(new_matricule: STRING)is

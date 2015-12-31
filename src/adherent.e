@@ -55,7 +55,7 @@ feature{ANY}
 			io.put_string("%N"+nom)
 			io.put_string("%N"+prenom)
 			io.put_string("%N"+adresse)
-			io.put_string("%N"+date_naiss)
+			io.put_string("%N"+date_naiss+"%N")
 		end
 			
 	get_nom : STRING is

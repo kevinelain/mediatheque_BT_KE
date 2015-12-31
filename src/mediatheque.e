@@ -6,7 +6,7 @@ creation {ANY}
 
 feature {}
 	adherent1: ADHERENT; dvd1: DVD; livre1: LIVRE; personnel1: PERSONNEL; final_test:BOOLEAN
-	x: INTEGER; choix_menu: INTEGER; test:STRING; adh_db: TEXT_FILE_READ
+	x: INTEGER; choix_menu: INTEGER; test:STRING; adh_db: TEXT_FILE_READ; med_db: TEXT_FILE_READ;
        les_dvds: ARRAY[DVD]; les_livres: ARRAY[LIVRE]; les_emprunts: ARRAY[EMPRUNT]; les_adherents: ARRAY[ADHERENT]; les_personnels: ARRAY[PERSONNEL]
         
 feature {ANY}
@@ -16,20 +16,50 @@ feature {ANY}
 			instance_test
 					
 
-                     from
+			from
 				x:=0
 			until
 				final_test
 			loop
 				adh_db.read_line
-                            if not(adh_db.end_of_input)
-                            then
+				if not(adh_db.end_of_input)
+                            	then
 			              creation_adh_with_file(adh_db.last_string)
-                            end
-                            final_test:=adh_db.end_of_input		
+                            	end
+                            	final_test:=adh_db.end_of_input		
 			end
 			adh_db.disconnect
 
+			final_test:=med_db.end_of_input
+			from
+				x:=0
+			until
+				final_test
+			loop
+				med_db.read_line
+				if not (med_db.end_of_input)
+				then
+			              creation_med_with_file(med_db.last_string)
+				end
+				final_test:=med_db.end_of_input
+			end
+			med_db.disconnect
+			from
+			  x:=1
+			 until
+			  x = les_livres.count+1
+			 loop
+				io.put_string("%N"+les_livres.item(x).get_titre)
+				x:=x+1
+			end
+			from
+ 			 x:=1
+			 until
+			  x = les_dvds.count+1
+			 loop
+				les_dvds.item(x).affichage_test
+				x:=x+1
+			end
 			io.put_string("Bienvenue dans le programme MEDIATHEQUE BTKE%N")
 			io.put_string("Etes-vous un adhérent(taper 1) ou un membre du personnel (taper 2)?%N")
 			io.put_string("Sinon taper 99 pour quitter%N")
@@ -113,13 +143,13 @@ feature {ANY}
 		
 		menu_personnel is
 		 local
-		  choix_menu_per: INTEGER
+		  choix_menu_per: INTEGER; temp:STRING; i: INTEGER; adh_db2: TEXT_FILE_READ
 		 do
 			choix_menu_per:=0
 			
 			from 
 			until
-			        choix_menu_per=8
+			        choix_menu_per=12
 			loop
 				io.put_string("--------------------------------------------------------%N")
 			       io.put_string("|  taper 1 pour rechercher un DVD	                    |%N")
@@ -129,7 +159,11 @@ feature {ANY}
 				io.put_string("|  taper 5 pour consulter les emprunt 	              |%N")
 				io.put_string("|  taper 6 pour ajouter un nouvel adhérent	       |%N")
 				io.put_string("|  taper 7 pour ajouter un nouveau membre du personnel	|%N")
-				io.put_string("|  taper 8 revenir au menu précédent 	              |%N")
+				io.put_string("|  taper 8 pour ajouter des membres via un fichier       |%N")
+				io.put_string("|  taper 9 pour voir tous les membres		        |%N")
+				io.put_string("|  taper 10 pour ajouter un media		        |%N")
+				io.put_string("|  taper 11 pour ajouter des media via un fichier        |%N")
+				io.put_string("|  taper 12 revenir au menu précédent 	              |%N")
 				io.put_string("--------------------------------------------------------%N")
 		                io.flush
 			        io.read_integer
@@ -154,7 +188,53 @@ feature {ANY}
 			        then
 					io.read_line
                                 	consulte_emprunt
-			        elseif (choix_menu_per=8)
+				elseif (choix_menu_per=8)
+			        then
+			        	temp:=""
+					io.read_line
+                                	io.put_string("Pour utiliser un fichier, mettez le fichier dans le dossier qui contient l'executable%N")				
+					io.put_string("donner le nom du fichier, par exemple: membre.txt %N")
+					io.read_line					
+					temp.copy(io.last_string)
+					create adh_db2.make
+					adh_db2.connect_to(temp)
+					final_test:=adh_db2.end_of_input
+					from
+						i:=0
+					until
+						final_test
+					loop
+						adh_db2.read_line
+                            			if not(adh_db2.end_of_input)
+						then
+							creation_adh_with_file(adh_db2.last_string)
+						end
+						final_test:=adh_db2.end_of_input
+						i:=i+1		
+					end
+					adh_db2.disconnect
+				elseif (choix_menu_per=9)
+				then
+					io.read_line
+					io.put_string("Nom des adhérents %N")
+			 		from
+			  			i:=1
+			 		until
+			  			i = les_adherents.count+1
+			 		loop
+			 			les_adherents.item(i).affichage_test
+			 			i:=i+1
+			 		end	
+			 		io.put_string("%N Nom du membre du personnel %N")
+					from
+			  			i:=1
+			 		until
+			  			i = les_personnels.count+1
+			 		loop
+			 			les_personnels.item(i).affichage_test
+			 			i:=i+1
+			 		end		 		
+			        elseif (choix_menu_per=12)
 			        then
                                 	choix_menu:=98
 			        end
@@ -165,28 +245,16 @@ feature {ANY}
 
 		instance_test is
 		 do
-		       create adh_db.make
+			create adh_db.make
 			adh_db.connect_to("inscrit.txt")
+			create med_db.make
+			med_db.connect_to("medias.txt")
 			
 			create les_dvds.with_capacity(0,1)
 			create les_livres.with_capacity(0,1)
 			create les_emprunts.with_capacity(0,1)     
-                     create les_adherents.with_capacity(0,1)
-                     create les_personnels.with_capacity(0,1)
-			
-			create personnel1.make("1", "Smith", "John", "789 rue Paul Menard 56000 Vannes", "26/01/1989", "test")
-			--personnel1.affichage_test
-
-			create dvd1.make("dvd-1", "Inception", "Thriller", 4, "2010", "Christopher Nolan", "Leonardo DiCaprio", "Simple")
-			les_dvds.add_first(dvd1)
-			create dvd1.make("dvd-2", "Shutter Island", "Thriller", 4, "2010", "Martin Scorsese", "Leonardo DiCaprio", "Simple")
-			les_dvds.add_first(dvd1)
-			create dvd1.make("dvd-3", "OSS 117, Le Caire nid d'espions", "Thriller/Comédie", 4, "2006", "Michel Hazanavicius", "Jean Dujardin", "Simple")
-			les_dvds.add_last(dvd1)
-
-
-			create livre1.make("livre-1", "Les Nymphéas Noirs", "Thriller/policier", 4, "2012", "Michel Bussi", 320)
-			les_livres.add_last(livre1)
+                     	create les_adherents.with_capacity(0,1)
+                     	create les_personnels.with_capacity(0,1)
 		end   
 		
 		
@@ -263,12 +331,13 @@ feature {ANY}
 		
 		
 		creation_adh_with_file(phrase: STRING)is
-		 local
+		local
 			tab:ARRAY[STRING]; adh:ADHERENT; pers:PERSONNEL
-                     itab:INTEGER
-                     bool_naiss:BOOLEAN; bool_admin:BOOLEAN
+                     	itab:INTEGER
+                     	bool_naiss:BOOLEAN; bool_admin:BOOLEAN
 			attribut: STRING
 		do
+		
 			create tab.with_capacity(0,1)
                      create adh.make ("","","","","")
                      create pers.make ("","","","","","")
@@ -285,35 +354,35 @@ feature {ANY}
 				itab = tab.count+1
 			     loop
 				if (tab.item(itab).is_equal("Nom"))
-                            then
-                                itab:=itab+1
-                                adh.set_nom(tab.item(itab))
-                                pers.set_nom(tab.item(itab))
-                            elseif (tab.item(itab).is_equal("Prenom"))
-                            then
-                                itab:=itab+1
-                               adh.set_prenom(tab.item(itab))
-                               pers.set_prenom(tab.item(itab))
-                          elseif (tab.item(itab).is_equal("Identifiant"))
-                            then
-                                itab:=itab+1
-                                adh.set_id(tab.item(itab))
-                                pers.set_id(tab.item(itab))
-                            elseif (tab.item(itab).is_equal("Adresse"))
-                            then
-                                itab:=itab+1
-                                adh.set_adresse(tab.item(itab))
-                                pers.set_adresse(tab.item(itab))
-                            elseif (tab.item(itab).is_equal("DateNaissance"))
-                            then
-                                itab:=itab+1
-                                adh.set_date_naiss(tab.item(itab))
-                                pers.set_date_naiss(tab.item(itab))
-                                bool_naiss:=True
-                            elseif (tab.item(itab).is_equal("Admin"))
-                            then
-                                   bool_admin:=True
-                            end
+                            	then
+                                	itab:=itab+1
+                               		adh.set_nom(tab.item(itab))
+                                	pers.set_nom(tab.item(itab))
+                           	 elseif (tab.item(itab).is_equal("Prenom"))
+                           	 then
+                                	itab:=itab+1
+                               		adh.set_prenom(tab.item(itab))
+                              		pers.set_prenom(tab.item(itab))
+                         	 elseif (tab.item(itab).is_equal("Identifiant"))
+                           	 then
+                                	itab:=itab+1
+                             		adh.set_id(tab.item(itab))
+                                	pers.set_id(tab.item(itab))
+                            	elseif (tab.item(itab).is_equal("Adresse"))
+                            	then
+                                	itab:=itab+1
+                                	adh.set_adresse(tab.item(itab))
+                                	pers.set_adresse(tab.item(itab))
+                            	elseif (tab.item(itab).is_equal("DateNaissance"))
+                            	then
+		                        itab:=itab+1
+		                        adh.set_date_naiss(tab.item(itab))
+		                        pers.set_date_naiss(tab.item(itab))
+		                        bool_naiss:=True
+		                elseif (tab.item(itab).is_equal("Admin"))
+		                then
+		                        bool_admin:=True
+                            	end
                             itab:=itab+1
 		        end
                      if (bool_naiss=False)
@@ -329,8 +398,93 @@ feature {ANY}
                         les_adherents.add_last(adh)
                      end  
 		end		
-        
-        
+
+		creation_med_with_file(phrase: STRING)is
+		local
+			tab:ARRAY[STRING]; dvd:DVD; livre: LIVRE
+                     	itab:INTEGER
+                     	bool_livre:BOOLEAN; bool_id:BOOLEAN;
+			attribut: STRING
+		do
+			create tab.with_capacity(0,1)
+			create dvd.make ("","","null",1,"00/00/0000","","Simple")
+			create livre.make ("","","null",1,"00/00/0000","",0)
+			attribut:=""
+			bool_livre:=False; 
+			bool_id:=False;
+			phrase.replace_all('<',' ')
+			phrase.replace_all('>',' ')
+			phrase.replace_all(';',' ')
+			tab:=phrase.split
+			from
+				itab:=1
+			until
+				itab = tab.count+1
+			loop
+				if (tab.item(itab).is_equal("Livre"))
+                            	then
+                                	bool_livre:=True
+                                elseif (tab.item(itab).is_equal("Identifiant"))
+				then
+                                	itab:=itab+1
+                               		dvd.set_titre(tab.item(itab))
+                              		livre.set_titre(tab.item(itab))
+                              		bool_id:=True
+				elseif (tab.item(itab).is_equal("Titre"))
+				then
+                                	itab:=itab+1
+                               		dvd.set_titre(tab.item(itab))
+                              		livre.set_titre(tab.item(itab))
+				elseif (tab.item(itab).is_equal("Auteur"))
+				then
+                                	itab:=itab+1
+                             		livre.set_auteur(tab.item(itab))
+				elseif (tab.item(itab).is_equal("Nombre"))
+				then
+                                	itab:=itab+1
+                               		dvd.set_titre(tab.item(itab))
+                              		livre.set_titre(tab.item(itab))
+				elseif (tab.item(itab).is_equal("Annee"))
+				then
+		                        itab:=itab+1
+		                        dvd.set_titre(tab.item(itab))
+                              		livre.set_titre(tab.item(itab))
+				elseif (tab.item(itab).is_equal("Genre"))
+				then
+		                        itab:=itab+1
+		                        dvd.set_titre(tab.item(itab))
+                              		livre.set_titre(tab.item(itab))
+                              	elseif (tab.item(itab).is_equal("NombrePage"))
+                              	then
+                              		itab:=itab+1
+                              		livre.set_nb_pages(tab.item(itab).to_integer)
+                              	elseif (tab.item(itab).is_equal("Realisateur"))
+                              	then
+                              		itab:=itab+1
+                              		dvd.set_realisateur(tab.item(itab))
+                              	elseif (tab.item(itab).is_equal("Acteur"))
+                              	then
+                              		itab:=itab+1
+                              		dvd.new_acteur(tab.item(itab))
+                              	elseif (tab.item(itab).is_equal("Type"))
+                              	then
+                              		itab:=itab+1
+                              		dvd.set_type(tab.item(itab))
+				end
+				itab:=itab+1
+		        end
+		     if (bool_id=False)
+		     then
+		     	dvd.set_id(dvd.get_titre+"dvd"+dvd.get_type)
+			livre.set_id(livre.get_titre+"livre")
+		     end
+                     if (bool_livre=True)
+                     then
+                        les_livres.add_last(livre)                         
+                     else
+                        les_dvds.add_last(dvd)
+                     end  
+		end        
         
         	enregistrer_emprunt is
 		 local
