@@ -1,5 +1,5 @@
 class PERSONNEL inherit ADHERENT
- rename make as make_adherent, affichage_test as affichage_test_adh end
+ rename make as make_adherent, affichage_test as affichage_test_adh, get_text_file as get_text_file_adh end
  
 creation {ANY}
 	make, set_matricule
@@ -15,20 +15,27 @@ feature {ANY}
 			matricule:=new_matricule
 		end
 		
-	--Fonction d'affichage test
+	--On affiche les informations du membre du personnel
 	affichage_test is
 		do
 			affichage_test_adh
-			io.put_string(matricule+"%N")
+			io.put_string(" matricule: "+matricule+"%N")
 		end
 
+	--Le setteur de la classe
 	set_matricule(new_matricule: STRING)is
 		do
                      matricule:=new_matricule
 		end  
 
+	--getter de la classe
 	get_matricule : STRING is
               do
                      Result:=matricule
               end
+              
+	get_text_file : STRING is
+		do
+			Result:="Nom<"+nom+"> ; Prenom<"+prenom+"> ; Identifiant<"+id+"> ; Adresse<"+adresse+"> ; DateNaissance<"+date_naiss+"> ; Admin<OUI>"
+		end
 end

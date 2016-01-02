@@ -16,6 +16,7 @@ feature {ANY}
 		-- si le DVD est simple, en coffret, double...
 
 feature {ANY}
+	--constructeur de la classe
 	make(new_id: STRING; new_titre: STRING; new_genre: STRING; new_nb_exemplaires: INTEGER; new_date: STRING; new_realisateur: STRING; new_type: STRING)is
 		do
 			make_media(new_id, new_titre, new_genre, new_nb_exemplaires, new_date)
@@ -24,6 +25,7 @@ feature {ANY}
 			type := new_type			
 		end
 
+	--Les setteurs de la classe
 	set_realisateur (new_realisateur: STRING) is
 		require
 
@@ -31,13 +33,6 @@ feature {ANY}
 
 		do
 			realisateur := new_realisateur
-		end
-
-	new_acteur(new_acteurs: STRING) is
-		require
-		local
-		do
-			acteurs.add_last(new_acteurs)
 		end
 	
 	set_type (new_type: STRING) is
@@ -48,24 +43,59 @@ feature {ANY}
 		do
 			type := new_type
 		end
+		
+	-- fonction qui va ajouter un nouvel acteur dans le tableau des acteurs qui jouent dans le film/documentaire
+	new_acteur(new_acteurs: STRING) is
+		require
+		
+		local
+		do
+			acteurs.add_last(new_acteurs)
+		end
+		
+	--getter de la classe
 	get_type : STRING is
 		do
                          Result:=type
                 end
-	
-	--Fonction d'affichage test
-	affichage_test is
+               
+        get_text_file : STRING is
+		local
+			text: STRING; x: INTEGER
 		do
-			io.put_string("%N"+id)
-			io.put_string("%N"+titre)
-			io.put_string("%N"+genre)
-			io.put_string("%N")
-			io.put_integer(nb_exemplaires)
-			io.put_string("%N"+date)
-			io.put_string("%N"+realisateur)
---			io.put_string("%N"+acteurs)
-			io.put_string("%N"+type+"%N")
+			text:="DVD ; Identifiant<"+id+"> ; Titre<"+titre+"> ; Genre<"+genre+"> ; Nombre<"+nb_exemplaires.to_string+"> ; Annee<"+date+"> ; Realisateur<"+realisateur+"> ; "
+			from
+				x:=1
+			until
+				x=acteurs.count+1
+			loop
+				text:=text+"Acteur<"+acteurs.item(x)+"> ; "
+				x:=x+1
+			end
+			text:=text+"Type<"+type+">"
+			Result:=text
 		end
-
-
+	
+	--On affiche les informations du dvd
+	affichage_test is
+		local
+			x: INTEGER
+		do
+			io.put_string("%N identifiant: "+id)
+			io.put_string("%N titre du film: "+titre)
+			io.put_string("%N genre du film: "+genre)
+			io.put_string("%N nombre d'exemplaire: ")
+			io.put_integer(nb_exemplaires)
+			io.put_string("%N date de sortie: "+date)
+			io.put_string("%N realisateur: "+realisateur)
+			from
+				x:=1
+			until
+				x=acteurs.count+1
+			loop
+				io.put_string("%N acteur: "+acteurs.item(x))
+				x:=x+1
+			end
+			io.put_string("%N type du DVD"+type+"%N")
+		end
 end

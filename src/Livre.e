@@ -22,6 +22,7 @@ feature {ANY}
 			nb_pages := new_nb_pages
 		end
 
+	--Les setteurs de la classe
 	set_auteur (new_auteur : STRING) is
 		require
 
@@ -40,19 +41,25 @@ feature {ANY}
 			nb_pages := new_nb_pages
 		end
 
-	--Fonction d'affichage test
+	--On affiche les informations du livre
 	affichage_test is
 		do
-			io.put_string("%N"+id)
-			io.put_string("%N"+titre)
-			io.put_string("%N"+genre)
-			io.put_string("%N")
+			io.put_string("%N identifiant: "+id)
+			io.put_string("%N titre du livre: "+titre)
+			io.put_string("%N genre du livre: "+genre)
+			io.put_string("%N nombre d'exemplaire: ")
 			io.put_integer(nb_exemplaires)
-			io.put_string("%N"+date)
-			io.put_string("%N"+auteur)
-			io.put_string("%N")
+			io.put_string("%N date de sortie: "+date)
+			io.put_string("%N Auteur: "+auteur)
+			io.put_string("%N Nombre de page: ")
 			io.put_integer(nb_pages)
 			io.put_string("%N")
+		end
+		
+	--getter de la classe
+	get_text_file : STRING is
+		do
+			Result:="Livre ; Identifiant<"+id+"> ; Titre<"+titre+"> ; Genre<"+genre+"> ; Nombre<"+nb_exemplaires.to_string+"> ; Annee<"+date+"> ; Auteur<"+auteur+"> ; NombrePage<"+nb_pages.to_string+">"
 		end
 
 end

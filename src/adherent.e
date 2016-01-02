@@ -21,8 +21,7 @@ feature{ANY}
 			date_naiss:=new_date_naiss
 		end
 	
---Les setteurs de la classe
-
+	--Les setteurs de la classe
 	set_id(new_id: STRING)is
 		do
                      id:=new_id
@@ -48,16 +47,23 @@ feature{ANY}
 			date_naiss:=new_date_naiss
 		end	
 		
-			--Fonction d'affichage test
+	--On affiche les informations de l'adhérent
 	affichage_test is
 		do
-			io.put_string("%N"+id)
-			io.put_string("%N"+nom)
-			io.put_string("%N"+prenom)
-			io.put_string("%N"+adresse)
-			io.put_string("%N"+date_naiss+"%N")
+			io.put_string("%N identifiant: "+id)
+			io.put_string("%N nom: "+nom)
+			io.put_string("%N prenom: "+prenom)
+			io.put_string("%N adresse: "+adresse)
+			io.put_string("%N date de naissance: "+date_naiss+"%N")
+		end
+	
+	--On renvoie en string les informations à écrire sur le fichier
+	get_text_file : STRING is
+		do
+			Result:="Nom<"+nom+"> ; Prenom<"+prenom+"> ; Identifiant<"+id+"> ; Adresse<"+adresse+"> ; DateNaissance<"+date_naiss+">"
 		end
 			
+	--getter de la classe
 	get_nom : STRING is
               do
                      Result:=nom

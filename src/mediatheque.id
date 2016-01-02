@@ -130,6 +130,43 @@ class-name: STREAM_PROTOCOL
 assertion-level: all
 parent-count: 1 inherit: 136
 #
+|lib:abilities/
+33 "STORABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/storable.e"
+class-name: STORABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+28 "RECYCLABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/recyclable.e"
+class-name: RECYCLABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+35 "HASHABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/hashable.e"
+class-name: HASHABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+32 "TRAVERSABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/traversable.e"
+class-name: TRAVERSABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+93 "DISPOSABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/disposable.e"
+class-name: DISPOSABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+34 "COMPARABLE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/comparable.e"
+class-name: COMPARABLE
+assertion-level: all
+parent-count: 1 insert: 13 
+#
 |lib:io/loadpath.se:terminal/
 58 "TEXT_FILE_READ" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal/text_file_read.e"
@@ -143,17 +180,23 @@ run-time-set-count: 1
 run-time-set:
 	TEXT_FILE_READ (58)
 #
-153 "TEXT_FILE_WRITE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal/text_file_write.e"
-class-name: TEXT_FILE_WRITE
-assertion-level: all
-parent-count: 2 inherit: 59 38
-#
 155 "TEXT_FILE_READ_WRITE" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal/text_file_read_write.e"
 class-name: TEXT_FILE_READ_WRITE
 assertion-level: all
 parent-count: 3 inherit: 59 41 insert: 31 
+#
+153 "TEXT_FILE_WRITE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal/text_file_write.e"
+class-name: TEXT_FILE_WRITE
+assertion-level: all
+parent-count: 2 inherit: 59 38
+c-type: T153 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	TEXT_FILE_WRITE (153)
 #
 37 "STD_ERROR" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal/std_error.e"
@@ -203,42 +246,34 @@ run-time-set-count: 1
 run-time-set:
 	STD_INPUT_OUTPUT (40)
 #
-|lib:abilities/
-33 "STORABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/storable.e"
-class-name: STORABLE
-assertion-level: all
-parent-count: 1 insert: 13 
+|lib:storage/loadpath.se:collection/
+180 "ARRAY[ADHERENT]" l
 #
-28 "RECYCLABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/recyclable.e"
-class-name: RECYCLABLE
-assertion-level: all
-parent-count: 1 insert: 13 
+172 "ARRAY[LIVRE]" l
 #
-35 "HASHABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/hashable.e"
-class-name: HASHABLE
-assertion-level: all
-parent-count: 1 insert: 13 
+173 "ARRAY[DVD]" l
 #
-32 "TRAVERSABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/traversable.e"
-class-name: TRAVERSABLE
+81 "FAST_ARRAY" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/collection/fast_array.e"
+class-name: FAST_ARRAY
 assertion-level: all
-parent-count: 1 insert: 13 
+parent-count: 3 inherit: 64 insert: 69 68 
 #
-93 "DISPOSABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/disposable.e"
-class-name: DISPOSABLE
-assertion-level: all
-parent-count: 1 insert: 13 
+103 "RING_ARRAY" l
 #
-34 "COMPARABLE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/abilities/comparable.e"
-class-name: COMPARABLE
+170 "ARRAY[MEDIA]" l
+#
+167 "ARRAY[STRING]" l
+#
+179 "ARRAY[PERSONNEL]" l
+#
+67 "ARRAY" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/collection/array.e"
+class-name: ARRAY
 assertion-level: all
-parent-count: 1 insert: 13 
+parent-count: 3 inherit: 64 insert: 69 68 
+#
+177 "ARRAY[EMPRUNT]" l
 #
 |lib:numeric/loadpath.se:internal/
 76 "INTEGER_GENERAL_NUMBER" l
@@ -270,35 +305,6 @@ class-path: "/home/bertrand/Documents/SmartEiffel/lib/numeric/internal/big_integ
 class-name: BIG_INTEGER_NUMBER
 assertion-level: all
 parent-count: 1 inherit: 76
-#
-|lib:storage/loadpath.se:collection/
-180 "ARRAY[ADHERENT]" l
-#
-172 "ARRAY[LIVRE]" l
-#
-173 "ARRAY[DVD]" l
-#
-81 "FAST_ARRAY" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/collection/fast_array.e"
-class-name: FAST_ARRAY
-assertion-level: all
-parent-count: 3 inherit: 64 insert: 69 68 
-#
-103 "RING_ARRAY" l
-#
-170 "ARRAY[MEDIA]" l
-#
-167 "ARRAY[STRING]" l
-#
-179 "ARRAY[PERSONNEL]" l
-#
-67 "ARRAY" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/collection/array.e"
-class-name: ARRAY
-assertion-level: all
-parent-count: 3 inherit: 64 insert: 69 68 
-#
-177 "ARRAY[EMPRUNT]" l
 #
 |lib:kernel/
 14 "TUPLE" l
@@ -355,17 +361,17 @@ class-name: TUPLE 2
 assertion-level: all
 parent-count: 1 inherit: 15
 #
-17 "TUPLE 3" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/tuple.e"
-class-name: TUPLE 3
-assertion-level: all
-parent-count: 1 inherit: 16
-#
 13 "ANY" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/any.e"
 class-name: ANY
 assertion-level: all
 parent-count: 0
+#
+17 "TUPLE 3" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/tuple.e"
+class-name: TUPLE 3
+assertion-level: all
+parent-count: 1 inherit: 16
 #
 18 "TUPLE 4" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/tuple.e"
@@ -415,21 +421,28 @@ class-name: SAFE_EQUAL
 assertion-level: all
 parent-count: 1 insert: 13 
 #
-101 "PROCEDURE" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/procedure.e"
-class-name: PROCEDURE
-assertion-level: all
-parent-count: 1 inherit: 66
-#
 24 "TUPLE 10" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/tuple.e"
 class-name: TUPLE 10
 assertion-level: all
 parent-count: 1 inherit: 23
 #
+101 "PROCEDURE" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/procedure.e"
+class-name: PROCEDURE
+assertion-level: all
+parent-count: 1 inherit: 66
+#
 95 "MEMORY" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/memory.e"
 class-name: MEMORY
+assertion-level: all
+parent-count: 1 insert: 13 
+#
+|lib:iterator/loadpath.se:
+63 "ITERATOR" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/iterator/iterator.e"
+class-name: ITERATOR
 assertion-level: all
 parent-count: 1 insert: 13 
 #
@@ -479,13 +492,6 @@ parent-count: 3 insert: 35 28 132
 135 "PROTOCOLS" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/net/protocols.e"
 class-name: PROTOCOLS
-assertion-level: all
-parent-count: 1 insert: 13 
-#
-|lib:iterator/loadpath.se:
-63 "ITERATOR" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/iterator/iterator.e"
-class-name: ITERATOR
 assertion-level: all
 parent-count: 1 insert: 13 
 #
@@ -634,6 +640,13 @@ class-name: MINI_PARSER_BUFFER
 assertion-level: all
 parent-count: 1 insert: 31 
 #
+|lib:storage/loadpath.se:dictionary/
+140 "HASHED_DICTIONARY" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/dictionary/hashed_dictionary.e"
+class-name: HASHED_DICTIONARY
+assertion-level: all
+parent-count: 2 inherit: 141 insert: 143 
+#
 |lib:io/loadpath.se:path_name/
 115 "POSIX_PATH_NAME" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/path_name/posix_path_name.e"
@@ -688,13 +701,6 @@ class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/path_name/amiga_directo
 class-name: AMIGA_DIRECTORY_NOTATION
 assertion-level: all
 parent-count: 1 inherit: 107
-#
-|lib:storage/loadpath.se:dictionary/
-140 "HASHED_DICTIONARY" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/dictionary/hashed_dictionary.e"
-class-name: HASHED_DICTIONARY
-assertion-level: all
-parent-count: 2 inherit: 141 insert: 143 
 #
 |lib:storage/loadpath.se:internal/
 150 "HASHED_DICTIONARY_NODE" l
@@ -761,17 +767,17 @@ assertion-level: all
 parent-count: 1 insert: 13 
 #
 |lib:kernel/internal/
-86 "NATIVE_ARRAY_INTERNALS" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/internal/native_array_internals.e"
-class-name: NATIVE_ARRAY_INTERNALS
-assertion-level: all
-parent-count: 1 inherit: 45
-#
 68 "NATIVE_ARRAY_COLLECTOR" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/internal/native_array_collector.e"
 class-name: NATIVE_ARRAY_COLLECTOR
 assertion-level: all
 parent-count: 1 insert: 13 
+#
+86 "NATIVE_ARRAY_INTERNALS" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/internal/native_array_internals.e"
+class-name: NATIVE_ARRAY_INTERNALS
+assertion-level: all
+parent-count: 1 inherit: 45
 #
 74 "INTERNALS_HANDLER" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/kernel/internal/internals_handler.e"
@@ -846,17 +852,17 @@ ref-status: dead
 destination-graph-nodes: none
 run-time-set-count: 0
 #
-50 "FILTER" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/filter.e"
-class-name: FILTER
-assertion-level: all
-parent-count: 1 insert: 13 
-#
 38 "TERMINAL_OUTPUT_STREAM" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/terminal_output_stream.e"
 class-name: TERMINAL_OUTPUT_STREAM
 assertion-level: all
 parent-count: 1 inherit: 26
+#
+50 "FILTER" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/filter.e"
+class-name: FILTER
+assertion-level: all
+parent-count: 1 insert: 13 
 #
 72 "FILTER_INPUT_STREAM" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/io/filter_input_stream.e"
@@ -955,6 +961,13 @@ class-name: PATH_JOINER
 assertion-level: all
 parent-count: 1 insert: 13 
 #
+|lib:time/loadpath.se:low_level/
+187 "TIME_HANDLER" l
+class-path: "/home/bertrand/Documents/SmartEiffel/lib/time/low_level/time_handler.e"
+class-name: TIME_HANDLER
+assertion-level: all
+parent-count: 1 insert: 13 
+#
 |lib:net/loadpath.se:resource_locators/
 186 "NETWORK_RESOURCE_LOCATOR" l
 class-path: "/home/bertrand/Documents/SmartEiffel/lib/net/resource_locators/network_resource_locator.e"
@@ -974,12 +987,84 @@ class-name: NETWORK_RESOURCE_VALIDITY
 assertion-level: all
 parent-count: 1 insert: 13 
 #
-|lib:time/loadpath.se:low_level/
-187 "TIME_HANDLER" l
-class-path: "/home/bertrand/Documents/SmartEiffel/lib/time/low_level/time_handler.e"
-class-name: TIME_HANDLER
+|Local Cluster
+124 "MEDIA" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/Media.e"
+class-name: MEDIA
 assertion-level: all
 parent-count: 1 insert: 13 
+#
+25 "MEDIATHEQUE" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/mediatheque.e"
+class-name: MEDIATHEQUE
+assertion-level: all
+parent-count: 1 insert: 13 
+c-type: T25 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	MEDIATHEQUE (25)
+#
+169 "PERSONNEL" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/personnel.e"
+class-name: PERSONNEL
+assertion-level: all
+parent-count: 1 inherit: 49
+c-type: T169 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	PERSONNEL (169)
+#
+176 "EMPRUNT" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/emprunt.e"
+class-name: EMPRUNT
+assertion-level: all
+parent-count: 1 insert: 13 
+c-type: T176 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	EMPRUNT (176)
+#
+125 "DVD" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/DVD.e"
+class-name: DVD
+assertion-level: all
+parent-count: 1 inherit: 124
+c-type: T125 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	DVD (125)
+#
+123 "LIVRE" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/Livre.e"
+class-name: LIVRE
+assertion-level: all
+parent-count: 1 inherit: 124
+c-type: T123 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	LIVRE (123)
+#
+49 "ADHERENT" l
+class-path: "/home/bertrand/Documents/Cours/GLO/Projet/mediatheque_BT_KE/src/adherent.e"
+class-name: ADHERENT
+assertion-level: all
+parent-count: 1 insert: 13 
+c-type: T49 reference: yes
+ref-status: live id-field: yes 
+destination-graph-nodes: none
+run-time-set-count: 1
+run-time-set:
+	ADHERENT (49)
 #
 |lib:storage/loadpath.se:
 134 "STACK" l
@@ -1007,85 +1092,6 @@ class-path: "/home/bertrand/Documents/SmartEiffel/lib/storage/collection.e"
 class-name: COLLECTION
 assertion-level: all
 parent-count: 3 inherit: 13 33 32
-#
-|Local Cluster
-124 "MEDIA" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/Media.e"
-class-name: MEDIA
-assertion-level: all
-parent-count: 1 insert: 13 
-#
-25 "MEDIATHEQUE" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/mediatheque.e"
-class-name: MEDIATHEQUE
-assertion-level: all
-parent-count: 1 insert: 13 
-c-type: T25 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	MEDIATHEQUE (25)
-#
-169 "PERSONNEL" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/personnel.e"
-class-name: PERSONNEL
-assertion-level: all
-parent-count: 1 inherit: 49
-c-type: T169 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	PERSONNEL (169)
-#
-176 "EMPRUNT" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/emprunt.e"
-class-name: EMPRUNT
-assertion-level: all
-parent-count: 1 insert: 13 
-c-type: T176 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	EMPRUNT (176)
-#
-125 "DVD" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/DVD.e"
-class-name: DVD
-assertion-level: all
-parent-count: 1 inherit: 124
-c-type: T125 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	DVD (125)
-#
-123 "LIVRE" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/Livre.e"
-class-name: LIVRE
-assertion-level: all
-parent-count: 1 inherit: 124
-c-type: T123 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	LIVRE (123)
-#
-49 "ADHERENT" l
-class-path: "/home/bertrand/Documents/M1/mediatheque_BT_KE/src/adherent.e"
-class-name: ADHERENT
-assertion-level: all
-parent-count: 1 insert: 13 
-c-type: T49 reference: yes
-ref-status: live id-field: yes 
-destination-graph-nodes: none
-run-time-set-count: 1
-run-time-set:
-	ADHERENT (49)
 #
 |lib:storage/loadpath.se:low_level/
 178 "NATIVE_ARRAY[EMPRUNT]" l
