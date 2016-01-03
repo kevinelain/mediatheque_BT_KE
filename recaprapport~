@@ -5,7 +5,6 @@ L'identificateur adhérents et membre du personnel est la première lettre de so
 Le matricule du membre du personnel se fait en mettant le nom de vant son id. Soit Gaston Lagaffe donne Lagaffeglagaffe
 L'identificateur du livre se fait en fonction du titre suivit de livre. Odyssee donne Odysseelivre
 L'identificateur du dvd se fait en fonction du titre suivit de dvd et du type de boite . Harry Potter en dvd simple donne Harry Potterdvdsimple
-Le matricule n'est en fait pas utilisé car il n'y a pas la connexion pour acceder aux différents menu mais est généré exclusivement pour cette future fonctionnalité (pas mis en place pour cause de manque de temps). On peut considéré qu'il s'agit d'une petite médiathèque et qu'il y qu'un seul ordinateur de libre et toujours sous la surveillance d'un membre du personnel
+Le matricule n'est en fait pas utilisé car il n'y a pas la connexion pour acceder aux différents menu mais est généré exclusivement pour cette future fonctionnalité (pas mis en place pour cause de manque de temps)
 Il ne pas y avoir d'homonyme dans la médiathèque sauf si son Identificateur est généré manuellement et l'inscription se fait par un fichier (on peut considéré que pour l'inscription il y a vérification de la présence d'un homonyme et que le futur inscrit utilise son deuxième prénom)
-Seul un membre du personnel peut faire l'inscription d'un adhérent ou d'un média ainsi que l'enregistrement d'un emprunt et d'un retour
 

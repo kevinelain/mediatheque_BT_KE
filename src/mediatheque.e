@@ -739,16 +739,8 @@ feature {ANY}
 		creer_adherent is
         	local
         		adh:ADHERENT
-			id_adh, nom_adh, prenom_adh, adr_adh, date_adh: STRING; calcul:INTEGER
+			id_adh, nom_adh, prenom_adh, adr_adh, date_adh, first_caract, nom_lower: STRING; 
         	do
-        		if les_adherents.is_empty
-        		then
-        			id_adh:="1"
-        		else
-        			id_adh:=les_adherents.item(les_adherents.count).get_id
-        			calcul:=id_adh.to_integer+1
-        			id_adh:=calcul.to_string
-        		end
         		io.put_string("---------------------------------------------------%N")
 			io.put_string("Insertion des informations du nouvel adhérent%N")
 			io.put_string("---------------------------------------------------%N")
@@ -771,6 +763,10 @@ feature {ANY}
                 	io.read_line
 			date_adh:=""
 			date_adh.copy(io.last_string)
+			first_caract:=prenom_adh.item(1).to_string
+			first_caract:=first_caract.as_lower
+			nom_lower:=nom_adh.as_lower
+			id_adh:=first_caract+nom_lower
 			create adh.make (id_adh,nom_adh,prenom_adh,adr_adh,date_adh)
 			les_adherents.add_last(adh)
 		end
@@ -779,16 +775,8 @@ feature {ANY}
                	creer_membre is
 		local
         		mem:PERSONNEL
-			id_mem, nom_mem, prenom_mem, adr_mem, date_mem, mat_mem: STRING; calcul:INTEGER
+			id_mem, nom_mem, prenom_mem, adr_mem, date_mem, mat_mem, first_caract, nom_lower: STRING; 
         	do
-        		if les_personnels.is_empty
-        		then
-        			id_mem:="1"
-        		else
-        			id_mem:=les_personnels.item(les_personnels.count).get_id
-        			calcul:=id_mem.to_integer+1
-        			id_mem:=calcul.to_string
-        		end
         		io.put_string("---------------------------------------------------%N")
 			io.put_string("Insertion des informations du nouveau membre du personnel%N")
 			io.put_string("---------------------------------------------------%N")
@@ -811,6 +799,10 @@ feature {ANY}
                 	io.read_line
 			date_mem:=""
 			date_mem.copy(io.last_string)
+			first_caract:=prenom_mem.item(1).to_string
+			first_caract:=first_caract.as_lower
+			nom_lower:=nom_mem.as_lower
+			id_mem:=first_caract+nom_lower
 			mat_mem:=nom_mem+id_mem
 			create mem.make (id_mem,nom_mem,prenom_mem,adr_mem,date_mem,mat_mem)
 			les_personnels.add_last(mem)

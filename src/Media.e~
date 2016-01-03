@@ -2,22 +2,32 @@ class MEDIA
 	-- représente la classe d'un media
 
 creation {ANY}
-	set_id, set_titre, set_genre, set_nb_exemplaires, set_date
+	make, set_id, set_titre, set_genre, set_nb_exemplaires, set_date
 
-feature {}
-	id: INTEGER
+feature {ANY}
+	id: STRING
 		-- id du média
 	titre: STRING
 		-- titre du média
-	genre: INTEGER
+	genre: STRING
 		-- genre du média (thriller, SF...)
 	nb_exemplaires: INTEGER
 		-- nombre d'exemplaires du média
 	date: STRING
 		-- date de sorti du média d'origine
 
-feature {}
-	set_id (new_id: INTEGER) is
+feature {ANY}
+	--constructeur de la classe
+	make(new_id: STRING; new_titre: STRING; new_genre: STRING; new_nb_exemplaires: INTEGER; new_date: STRING)is
+		do
+			id:=new_id
+			titre:=new_titre
+			genre:=new_genre
+			nb_exemplaires:=new_nb_exemplaires
+			date:=new_date
+		end
+
+	set_id (new_id: STRING) is
 		do
 			id := new_id
 		end
@@ -42,17 +52,23 @@ feature {}
 			date := new_date
 		end
 
-	diminuer_exemplaires() is	-- diminue le nbExemplaire de 1 lors d'un emprunt
+	diminuer_exemplaires is	-- diminue le nbExemplaire de 1 lors d'un emprunt
 		do
 			nb_exemplaires := nb_exemplaires - 1
 		end
 
-	augmenter_exemplaires() is	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
+	augmenter_exemplaires is	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
 		do
 			nb_exemplaires := nb_exemplaires + 1
 		end
-
-feature {}
-	
+		
+        get_titre: STRING is
+                do
+                         Result:=titre
+                end
+        get_id : STRING is
+		do
+			Result:=id
+		end
 end
 	

@@ -27,6 +27,7 @@ feature {ANY}
 			date:=new_date
 		end
 
+	--Les setteurs de la classe
 	set_id (new_id: STRING) is
 		do
 			id := new_id
@@ -52,16 +53,19 @@ feature {ANY}
 			date := new_date
 		end
 
-	diminuer_exemplaires is	-- diminue le nbExemplaire de 1 lors d'un emprunt
+	-- diminue le nbExemplaire de 1 lors d'un emprunt
+	diminuer_exemplaires is	
 		do
 			nb_exemplaires := nb_exemplaires - 1
 		end
 
-	augmenter_exemplaires is	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
+	-- augmente le nbExemplaires de 1 lors d'un retour d'emprunt
+	augmenter_exemplaires is	
 		do
 			nb_exemplaires := nb_exemplaires + 1
 		end
-		
+	
+	--getter de la classe	
         get_titre: STRING is
                 do
                          Result:=titre

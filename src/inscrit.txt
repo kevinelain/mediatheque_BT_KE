@@ -1,1 +1,1 @@
-Nom<Admin> ; Prenom<Admin> ; Identifiant<1> ; Adresse<12 rue admin> ; DateNaissance<admin> ; Admin<OUI>
+Nom<Admin> ; Prenom<Admin> ; Identifiant<aadmin> ; Adresse<12 rue admin> ; DateNaissance<admin> ; Admin<OUI>
