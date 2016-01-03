@@ -155,19 +155,19 @@ feature {ANY}
 		-- Menu quand on est membre du personnel
 		menu_personnel is
 		 local
-		  choix_menu_per: INTEGER; temp:STRING; i: INTEGER; adh_db2: TEXT_FILE_READ
+		  choix_menu_per: INTEGER; temp, temps:STRING; i: INTEGER; adh_db2: TEXT_FILE_READ; tempb:BOOLEAN;
 		 do
 			choix_menu_per:=0
 			
 			from 
 			until
-			        choix_menu_per=13
+			        choix_menu_per=14
 			loop
 				io.put_string("--------------------------------------------------------%N")
 			       	io.put_string("|  taper 1 pour rechercher un DVD	                    |%N")
 		              	io.put_string("|  taper 2 pour rechercher un Livre	              |%N")
 		              	io.put_string("|  taper 3 pour enregistrer un emprunt	              |%N")
-				io.put_string("|  taper 4 pour rendre emprunt		              |%N")
+				io.put_string("|  taper 4 pour rendre un emprunt		              |%N")
 				io.put_string("|  taper 5 pour consulter les emprunt 	              |%N")
 				io.put_string("|  taper 6 pour ajouter un nouvel adhérent	       |%N")
 				io.put_string("|  taper 7 pour ajouter un nouveau membre du personnel	|%N")
@@ -176,7 +176,8 @@ feature {ANY}
 				io.put_string("|  taper 10 pour ajouter un livre		        |%N")
 				io.put_string("|  taper 11 pour ajouter un dvd			        |%N")
 				io.put_string("|  taper 12 pour ajouter des media via un fichier        |%N")
-				io.put_string("|  taper 13 revenir au menu précédent 	              |%N")
+				io.put_string("|  taper 13 pour augmenter le nombre d'exemplaire d'un media|%N")
+				io.put_string("|  taper 14 revenir au menu précédent 	              |%N")
 				io.put_string("--------------------------------------------------------%N")
 		                io.flush
 			        io.read_integer
@@ -316,6 +317,24 @@ feature {ANY}
 					end
 					adh_db2.disconnect		 		
 			        elseif (choix_menu_per=13)
+			        then
+                                	io.read_line
+                                	temp:=""
+                                	temps:=""
+                                	io.put_string("donner l'identifiant du media%N")
+					io.read_line
+					temp.copy(io.last_string)
+					io.put_string("donner le nombre de nouveaux exemplaires%N")
+					io.read_line
+					temps.copy(io.last_string)
+					tempb:=augmenter_exemplaire_media(temp, temps.to_integer)
+					if (tempb=True)
+					then
+						io.put_string("Augmentation réussie%N")
+					else
+						io.put_string("Augmentation échouer veuilez recommencer (id media erroner)%N")
+					end
+			        elseif (choix_menu_per=14)
 			        then
                                 	choix_menu:=98
 			        end
@@ -1010,7 +1029,7 @@ feature {ANY}
 			  		loop
 			   			if les_emprunts.item(i).get_id_adh.is_equal(id_adh) and les_emprunts.item(i).get_id_media.is_equal(id_media_emp)
 			   			then
-							reussi:=augmenter_exemplaire_media(les_emprunts.item(i).get_id_media)
+							reussi:=augmenter_exemplaire_media(les_emprunts.item(i).get_id_media, 1)
 							les_emprunts.item(i).set_date_retour_r(date_retour);
 			   			else
 							i:=i+1
@@ -1031,9 +1050,9 @@ feature {ANY}
 		 	end
 
 		-- Fonction qui va augmenter le nombre d'exemplaire d'un media. Il renvoie true s'il y arrive sinon False
-		augmenter_exemplaire_media(id_media:STRING):BOOLEAN is
+		augmenter_exemplaire_media(id_media:STRING; nombre: INTEGER):BOOLEAN is
 		local
-			i:INTEGER; trouve:BOOLEAN
+			i, compteur:INTEGER; trouve:BOOLEAN
 		do
 			-- On vérifie d'abord si le media est un dvd
 			trouve:=False
@@ -1044,7 +1063,14 @@ feature {ANY}
 		  	loop
 		   		if les_dvds.item(i).get_id.is_equal(id_media)
 		   		then
-					les_dvds.item(i).augmenter_exemplaires
+		   			from
+		   				compteur:=1
+		   			until
+		   				compteur=nombre+1
+		   			loop
+		   				les_dvds.item(i).augmenter_exemplaires
+		   				compteur:=compteur+1
+		   			end
 					trouve:=True
 		   		else
 					i:=i+1
@@ -1062,7 +1088,14 @@ feature {ANY}
 				loop
 					if les_livres.item(i).get_id.is_equal(id_media)
 					then
-						les_livres.item(i).augmenter_exemplaires
+						from
+		   					compteur:=1
+		   				until
+		   					compteur=nombre+1
+		   				loop
+		   					les_livres.item(i).augmenter_exemplaires
+		   					compteur:=compteur+1
+		   				end
 						trouve:=True
 					else
 						i:=i+1
